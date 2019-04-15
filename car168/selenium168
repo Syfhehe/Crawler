@@ -25,11 +25,11 @@ def get_trace(distance):
         # 如果处于加速阶段
         if start < faster_distance:
             # 设置加速度为2
-            a = 1.0
+            a = 10.0
         # 如果处于减速阶段
         else:
-            # 设置加速度为-3
-            a = -1
+            # 设置加速度为-1
+            a = -20
         # 移动的距离公式
         move = v0 * t + 1 / 2 * a * t * t
         # 此刻速度
@@ -86,7 +86,7 @@ except Exception as e:
     # print(e)
 
 #退出浏览器，如果浏览器打开多个窗口，可以使用driver.close()关闭当前窗口而不是关闭浏览器
-driver.quit()
+# driver.quit()
 
 
 
