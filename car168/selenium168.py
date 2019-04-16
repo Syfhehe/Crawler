@@ -19,17 +19,17 @@ def get_trace(distance):
     # 设置加速的距离
     faster_distance = distance * (4 / 5)
     # 设置初始位置、初始速度、时间间隔
-    start, v0, t = 0, 0, 0.1
+    start, v0, t = 0, 0, 0.05
     # 当尚未移动到终点时
     while start < distance:
         # 如果处于加速阶段
         if start < faster_distance:
             # 设置加速度为2
-            a = 2.0
+            a = 20.0
         # 如果处于减速阶段
         else:
             # 设置加速度为-3
-            a = -10.0
+            a = -1.0
         # 移动的距离公式
         move = v0 * t + 1 / 2 * a * t * t
         # 此刻速度
@@ -60,7 +60,7 @@ def get_trace(distance):
 
 driver = webdriver.Firefox()
 driver.get("http://www.chehang168.com/")
-time.sleep(2)
+time.sleep(0.1)
 name = driver.find_element_by_name("uname")
 
 name.send_keys("17816861605")
@@ -72,14 +72,15 @@ try:
     #定位滑块元素
     source=driver.find_element_by_xpath("//*[@id='nc_1_n1z']")
     # 得到滑块标签
-    trace = get_trace(230)
+    # trace = get_trace(230)
     # slider = WebDriverWait.until(EC.presence_of_element_located((By.CLASS_NAME, 'gt_slider_knob')))
     # 使用click_and_hold()方法悬停在滑块上，perform()方法用于执行
     ActionChains(driver).click_and_hold(source).perform()
     time.sleep(0.5)
-    for x in trace:
-        # 使用move_by_offset()方法拖动滑块，perform()方法用于执行
-        ActionChains(driver).move_by_offset(xoffset=x, yoffset=0).perform()
+    ActionChains(driver).move_by_offset(xoffset=250, yoffset=0).perform()
+    # for x in trace:
+    #     # 使用move_by_offset()方法拖动滑块，perform()方法用于执行
+    #     ActionChains(driver).move_by_offset(xoffset=x, yoffset=0).perform()
     # 模拟人类对准时间
     time.sleep(0.5)
     # 释放滑块
@@ -88,16 +89,19 @@ try:
         time.sleep(0.5)
         print(driver.current_url)
     print(driver.current_url)
-    time.sleep(2)
+    time.sleep(0.5)
+    # title = driver.find_element_by_xpath("/html/body/div[2]/div/ul/li[2]/a/text()")
+    cookie_list = driver.get_cookies()
+    print(cookie_list)
+    for cookie in cookie_list:
+        driver.add_cookie(cookie)
+
+
 except Exception as e:
     print(e)
     #这里定位失败后的刷新按钮，重新加载滑块模块
     # driver.find_element_by_xpath("//div[@id='havana_nco']/div/span/a").click()
     # print(e)
-
-
-
-
 
 #退出浏览器，如果浏览器打开多个窗口，可以使用driver.close()关闭当前窗口而不是关闭浏览器
 # driver.quit()

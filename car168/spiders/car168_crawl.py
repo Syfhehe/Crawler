@@ -36,6 +36,11 @@ class Car168Spider(Spider):
         "Referer": "http: // www.chehang168.com / index.php?c = login & m = index"
     }
 
+    cookie = {"DEVICE_ID":"f9b307d758e5d15bdea9c839d04610a6",
+              "_uab_collina":"155504794422439505407174",
+              "soucheAnalytics_usertag":"uZgr5ZgkcV",
+              "U":"1285841_8a088c5347ff612291c465aa42378894"}
+
     name = 'car168_spider'
 
     custom_settings = {
@@ -53,7 +58,7 @@ class Car168Spider(Spider):
     ]
 
     def start_requests(self):
-        return [Request("http://www.chehang168.com/index.php?c=login&m=GetLoginBySms",
+        return [Request("http://www.chehang168.com/index.php?c=index&m=index",
                         meta={'cookiejar': 1},
                         callback=self.post_login)]  # 重写了爬虫类的方法, 实现了自定义请求, 运行成功后会调用callback回调函数
 
