@@ -29,7 +29,7 @@ def get_trace(distance):
         # 如果处于减速阶段
         else:
             # 设置加速度为-3
-            a = -3
+            a = -10.0
         # 移动的距离公式
         move = v0 * t + 1 / 2 * a * t * t
         # 此刻速度
@@ -57,11 +57,14 @@ def get_trace(distance):
 #     # 释放滑块
 #     ActionChains(browser).release().perform()
 
+
 driver = webdriver.Firefox()
 driver.get("http://www.chehang168.com/")
 time.sleep(2)
 name = driver.find_element_by_name("uname")
+
 name.send_keys("17816861605")
+# name.send_keys("13732202517")
 script = "Object.defineProperties(navigator,{webdriver:{get:() => false}});"
 driver.execute_script(script)
 driver.execute_script("window.navigator.webdriver")
@@ -81,7 +84,11 @@ try:
     time.sleep(0.5)
     # 释放滑块
     ActionChains(driver).release().perform()
-    #等待JS认证运行,如果不等待容易报错
+    while driver.current_url != "http://www.chehang168.com/index.php?c=index&m=index":
+        time.sleep(0.5)
+        print(driver.current_url)
+    print(driver.current_url)
+    time.sleep(2)
 except Exception as e:
     print(e)
     #这里定位失败后的刷新按钮，重新加载滑块模块
