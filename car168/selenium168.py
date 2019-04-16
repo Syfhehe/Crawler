@@ -85,7 +85,16 @@ try:
         time.sleep(0.5)
         print(driver.current_url)
     print(driver.current_url)
-    time.sleep(2)
+    time.sleep(0.5)
+    driver.find_element_by_xpath(
+        u"(.//*[normalize-space(text()) and normalize-space(.)='更多'])[3]/following::img[1]").click()
+    driver.find_element_by_link_text(u"车商首页").click()
+    time.sleep(0.5)
+    driver.find_element_by_id("get_tels").click()
+    time.sleep(0.5)
+    html = driver.page_source
+    time.sleep(0.5)
+    print(html)
 except Exception as e:
     print(e)
     #这里定位失败后的刷新按钮，重新加载滑块模块
