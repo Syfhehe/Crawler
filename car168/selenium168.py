@@ -81,19 +81,11 @@ try:
     time.sleep(0.5)
     # 释放滑块
     ActionChains(driver).release().perform()
-
-    driver = webdriver.Firefox()
-    try:
-        driver.get("www.baidu.com")  # 打开百度
-        driver.find_element_by_css_selector(
-            '#lg img[src="//www.baidu.com/img/bd_logo1.png"]')  # 查看页面是否有 #lg img[src="//www.baidu.com/img/bd_logo1.png"]的 css元素存在。
-        print("百度打开成功")
-    except:
-    print("百度打开失败")
-
-
-
-    #等待JS认证运行,如果不等待容易报错
+    while driver.current_url != "http://www.chehang168.com/index.php?c=index&m=index":
+        time.sleep(0.5)
+        print(driver.current_url)
+    print(driver.current_url)
+    time.sleep(2)
 except Exception as e:
     print(e)
     #这里定位失败后的刷新按钮，重新加载滑块模块
@@ -101,7 +93,7 @@ except Exception as e:
     # print(e)
 
 #退出浏览器，如果浏览器打开多个窗口，可以使用driver.close()关闭当前窗口而不是关闭浏览器
-# driver.quit()
+driver.quit()
 
 
 
