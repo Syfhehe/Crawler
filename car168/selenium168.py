@@ -57,11 +57,14 @@ def get_trace(distance):
 #     # 释放滑块
 #     ActionChains(browser).release().perform()
 
-driver = webdriver.Chrome()
+driver = webdriver.Firefox()
 driver.get("http://www.chehang168.com/")
 time.sleep(2)
 name = driver.find_element_by_name("uname")
 name.send_keys("13732202517")
+script = "Object.defineProperties(navigator,{webdriver:{get:() => false}});"
+driver.execute_script(script)
+driver.execute_script("window.navigator.webdriver")
 try:
     #定位滑块元素
     source=driver.find_element_by_xpath("//*[@id='nc_1_n1z']")
@@ -78,6 +81,18 @@ try:
     time.sleep(0.5)
     # 释放滑块
     ActionChains(driver).release().perform()
+
+    driver = webdriver.Firefox()
+    try:
+        driver.get("www.baidu.com")  # 打开百度
+        driver.find_element_by_css_selector(
+            '#lg img[src="//www.baidu.com/img/bd_logo1.png"]')  # 查看页面是否有 #lg img[src="//www.baidu.com/img/bd_logo1.png"]的 css元素存在。
+        print("百度打开成功")
+    except:
+    print("百度打开失败")
+
+
+
     #等待JS认证运行,如果不等待容易报错
 except Exception as e:
     print(e)
