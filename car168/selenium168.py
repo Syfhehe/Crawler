@@ -19,17 +19,17 @@ def get_trace(distance):
     # 设置加速的距离
     faster_distance = distance * (4 / 5)
     # 设置初始位置、初始速度、时间间隔
-    start, v0, t = 0, 0, 0.2
+    start, v0, t = 0, 0, 0.1
     # 当尚未移动到终点时
     while start < distance:
         # 如果处于加速阶段
         if start < faster_distance:
             # 设置加速度为2
-            a = 1.0
+            a = 2.0
         # 如果处于减速阶段
         else:
             # 设置加速度为-3
-            a = -1
+            a = -3
         # 移动的距离公式
         move = v0 * t + 1 / 2 * a * t * t
         # 此刻速度
@@ -57,11 +57,14 @@ def get_trace(distance):
 #     # 释放滑块
 #     ActionChains(browser).release().perform()
 
-driver = webdriver.Chrome()
+driver = webdriver.Firefox()
 driver.get("http://www.chehang168.com/")
 time.sleep(2)
 name = driver.find_element_by_name("uname")
-name.send_keys("13732202517")
+name.send_keys("17816861605")
+script = "Object.defineProperties(navigator,{webdriver:{get:() => false}});"
+driver.execute_script(script)
+driver.execute_script("window.navigator.webdriver")
 try:
     #定位滑块元素
     source=driver.find_element_by_xpath("//*[@id='nc_1_n1z']")
@@ -85,8 +88,12 @@ except Exception as e:
     # driver.find_element_by_xpath("//div[@id='havana_nco']/div/span/a").click()
     # print(e)
 
+
+
+
+
 #退出浏览器，如果浏览器打开多个窗口，可以使用driver.close()关闭当前窗口而不是关闭浏览器
-driver.quit()
+# driver.quit()
 
 
 
