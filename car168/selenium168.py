@@ -25,7 +25,7 @@ def get_trace(distance):
         # 如果处于加速阶段
         if start < faster_distance:
             # 设置加速度为2
-            a = 2.0
+            a = 20.0
         # 如果处于减速阶段
         else:
             # 设置加速度为-3
@@ -63,8 +63,8 @@ driver.get("http://www.chehang168.com/")
 time.sleep(2)
 name = driver.find_element_by_name("uname")
 
-name.send_keys("17816861605")
-# name.send_keys("13732202517")
+#name.send_keys("17816861605")
+name.send_keys("13732202517")
 script = "Object.defineProperties(navigator,{webdriver:{get:() => false}});"
 driver.execute_script(script)
 driver.execute_script("window.navigator.webdriver")
@@ -104,12 +104,8 @@ except Exception as e:
     # driver.find_element_by_xpath("//div[@id='havana_nco']/div/span/a").click()
     # print(e)
 
-
-
-
-
 #退出浏览器，如果浏览器打开多个窗口，可以使用driver.close()关闭当前窗口而不是关闭浏览器
-# driver.quit()
+driver.quit()
 
 
 
