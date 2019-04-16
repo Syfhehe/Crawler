@@ -63,8 +63,8 @@ driver.get("http://www.chehang168.com/")
 time.sleep(0.1)
 name = driver.find_element_by_name("uname")
 
-name.send_keys("17816861605")
-# name.send_keys("13732202517")
+#name.send_keys("17816861605")
+name.send_keys("13732202517")
 script = "Object.defineProperties(navigator,{webdriver:{get:() => false}});"
 driver.execute_script(script)
 driver.execute_script("window.navigator.webdriver")
@@ -90,12 +90,22 @@ try:
         print(driver.current_url)
     print(driver.current_url)
     time.sleep(0.5)
-    # title = driver.find_element_by_xpath("/html/body/div[2]/div/ul/li[2]/a/text()")
-    cookie_list = driver.get_cookies()
-    print(cookie_list)
-    for cookie in cookie_list:
-        driver.add_cookie(cookie)
 
+    # title = driver.find_element_by_xpath("/html/body/div[2]/div/ul/li[2]/a/text()")
+    # cookie_list = driver.get_cookies()
+    # print(cookie_list)
+    # for cookie in cookie_list:
+    #     driver.add_cookie(cookie)
+
+    driver.find_element_by_xpath(
+        u"(.//*[normalize-space(text()) and normalize-space(.)='更多'])[3]/following::img[1]").click()
+    driver.find_element_by_link_text(u"车商首页").click()
+    time.sleep(0.5)
+    driver.find_element_by_id("get_tels").click()
+    time.sleep(0.5)
+    html = driver.page_source
+    time.sleep(0.5)
+    print(html)
 
 except Exception as e:
     print(e)
@@ -104,7 +114,7 @@ except Exception as e:
     # print(e)
 
 #退出浏览器，如果浏览器打开多个窗口，可以使用driver.close()关闭当前窗口而不是关闭浏览器
-# driver.quit()
+driver.quit()
 
 
 
