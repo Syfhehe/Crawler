@@ -1,20 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BuildServerSettings">
+    <option name="LOGIN" value="" />
+    <option name="SERVER_URL" value="http://buildserver" />
+    <option name="REMEMBER_ME" value="true" />
+    <option name="USE_IDEA_PROXY_SETTINGS" value="true" />
+    <option name="INSPECTIONS_BUILD_TYPE_IDS" />
+    <option name="DUPLICATES_BUILD_TYPE_IDS" />
+    <option name="COVERAGE_SETTINGS" />
+    <option name="TEST_STATUS_ENABLED" value="true" />
+    <option name="TEST_STATUS_SHOW_SUCCESSFUL" value="false" />
+    <option name="POSTPONE_SUITABLE_CONFIGURATIONS_SEARCH" value="false" />
+    <option name="ARTIFACTS_BUILD_TYPE_IDS" />
+    <option name="PERFORM_COMMIT_IF_SUCCESSFUL" value="true" />
+    <option name="PERFORM_COMMIT_IF_NO_NEW_FAILED_TESTS" value="false" />
+    <option name="REQUEST_CONFIRMATON" value="false" />
+    <option name="PRE_TESTED_COMMIT" value="true" />
+    <option name="FILTER_BY_STATUS" value="false" />
+    <option name="FILTER_MARKED_AS_FIXED" value="false" />
+    <option name="SHOW_CLOSE_PROMPT" value="true" />
+    <option name="TOOL_WINDOW_SELECTED_CONTENT_INDEX" value="0" />
+    <option name="FILTER_BY_CURRENT_PROJECT" value="true" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="066bc1f7-c6cb-4743-8dc8-0293e061c865" name="Default Changelist" comment="" />
+    <list default="true" id="066bc1f7-c6cb-4743-8dc8-0293e061c865" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/car168/input_text.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/car168/selenium_baidu.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Crawler.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Crawler.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/car168/selenium168.py" beforeDir="false" afterPath="$PROJECT_DIR$/car168/selenium168.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/car168/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/car168/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/car168/spiders/car168_crawl.py" beforeDir="false" afterPath="$PROJECT_DIR$/car168/spiders/car168_crawl.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/Crawler$crawl.coverage" NAME="crawl Coverage Results" MODIFIED="1555428159296" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/car168" />
+    <SUITE FILE_PATH="coverage/Crawler$selenium168__1_.coverage" NAME="selenium168 (1) Coverage Results" MODIFIED="1555513928478" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/car168" />
+    <SUITE FILE_PATH="coverage/Crawler$input_text.coverage" NAME="input_text Coverage Results" MODIFIED="1555432749672" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/car168" />
+    <SUITE FILE_PATH="coverage/Crawler$selenium_baidu.coverage" NAME="selenium_baidu Coverage Results" MODIFIED="1555513801712" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/car168" />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/car168/spiders/car168_crawl.py">
+        <entry file="file://$PROJECT_DIR$/car168/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="28" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
+            <state relative-caret-position="105">
+              <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -22,7 +59,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/car168/seleniumDemo.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
+            <state relative-caret-position="165">
               <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
               <folding>
                 <element signature="e#0#30#0" expanded="true" />
@@ -31,11 +68,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/car168/selenium168.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
-              <caret line="109" lean-forward="true" selection-start-line="109" selection-end-line="109" />
+            <state relative-caret-position="418">
+              <caret line="135" column="26" lean-forward="true" selection-start-line="135" selection-start-column="26" selection-end-line="135" selection-end-column="26" />
               <folding>
                 <element signature="e#1#31#0" expanded="true" />
               </folding>
@@ -43,10 +80,55 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/car168/selenium168_new.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="290">
+              <caret line="86" column="17" lean-forward="true" selection-start-line="86" selection-start-column="17" selection-end-line="86" selection-end-column="17" />
+              <folding>
+                <element signature="e#129#159#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/car168/selenium_baidu.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-333">
+              <caret line="35" column="8" lean-forward="true" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="8" />
+              <folding>
+                <element signature="e#141#171#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/car168/input_text.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="12" selection-start-line="12" selection-end-line="33" selection-end-column="14" />
+              <folding>
+                <element signature="e#123#143#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/anaconda/lib/python3.6/tkinter/__init__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="39825">
+              <caret line="2658" column="8" selection-start-line="2658" selection-start-column="8" selection-end-line="2658" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/car168/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1921">
+            <state relative-caret-position="1740">
               <caret line="116" selection-start-line="116" selection-end-line="116" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
@@ -55,30 +137,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/selenium/webdriver/common/action_chains.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1802">
-              <caret line="111" column="22" selection-start-line="111" selection-start-column="8" selection-end-line="111" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/car168/spiders/__init__.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/scrapy/spiders/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1003">
-              <caret line="68" column="8" selection-start-line="68" selection-start-column="8" selection-end-line="68" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -98,19 +164,682 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/car168/spiders/car168_crawl.py" />
         <option value="$PROJECT_DIR$/car168/seleniumDemo" />
         <option value="$PROJECT_DIR$/car168/selenium168" />
         <option value="$PROJECT_DIR$/car168/main.py" />
+        <option value="$PROJECT_DIR$/car168/settings.py" />
+        <option value="$PROJECT_DIR$/car168/spiders/car168_crawl.py" />
+        <option value="$PROJECT_DIR$/car168/input_text.py" />
+        <option value="$PROJECT_DIR$/car168/selenium_baidu.py" />
         <option value="$PROJECT_DIR$/car168/selenium168.py" />
+        <option value="$PROJECT_DIR$/selenium168_new.py" />
+        <option value="$PROJECT_DIR$/car168/selenium168_new.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="300" />
-    <option name="y" value="162" />
-    <option name="width" value="1800" />
-    <option name="height" value="975" />
+    <option name="y" value="47" />
+    <option name="width" value="1280" />
+    <option name="height" value="741" />
+  </component>
+  <component name="ProjectUserFactors">
+    <factor id="binaryFeature:liftShorter">
+      <dailyData date="16-04-2019">
+        <observation name="false" value="5.0" />
+      </dailyData>
+      <dailyData date="17-04-2019">
+        <observation name="false" value="100.0" />
+      </dailyData>
+      <dailyData date="18-04-2019">
+        <observation name="false" value="19.0" />
+      </dailyData>
+    </factor>
+    <factor id="binaryFeature:liftShorterClasses">
+      <dailyData date="16-04-2019">
+        <observation name="UNDEFINED" value="5.0" />
+      </dailyData>
+      <dailyData date="17-04-2019">
+        <observation name="UNDEFINED" value="100.0" />
+      </dailyData>
+      <dailyData date="18-04-2019">
+        <observation name="UNDEFINED" value="19.0" />
+      </dailyData>
+    </factor>
+    <factor id="binaryFeature:middleMatching">
+      <dailyData date="16-04-2019">
+        <observation name="false" value="5.0" />
+      </dailyData>
+      <dailyData date="17-04-2019">
+        <observation name="false" value="99.0" />
+        <observation name="true" value="1.0" />
+      </dailyData>
+      <dailyData date="18-04-2019">
+        <observation name="false" value="19.0" />
+      </dailyData>
+    </factor>
+    <factor id="binaryFeature:nonGeneric">
+      <dailyData date="16-04-2019">
+        <observation name="UNDEFINED" value="5.0" />
+      </dailyData>
+      <dailyData date="17-04-2019">
+        <observation name="UNDEFINED" value="100.0" />
+      </dailyData>
+      <dailyData date="18-04-2019">
+        <observation name="UNDEFINED" value="19.0" />
+      </dailyData>
+    </factor>
+    <factor id="binaryFeature:prox_inResolveScope">
+      <dailyData date="16-04-2019">
+        <observation name="UNDEFINED" value="1.0" />
+        <observation name="false" value="3.0" />
+        <observation name="true" value="1.0" />
+      </dailyData>
+      <dailyData date="17-04-2019">
+        <observation name="UNDEFINED" value="15.0" />
+        <observation name="false" value="50.0" />
+        <observation name="true" value="35.0" />
+      </dailyData>
+      <dailyData date="18-04-2019">
+        <observation name="UNDEFINED" value="2.0" />
+        <observation name="false" value="12.0" />
+        <observation name="true" value="5.0" />
+      </dailyData>
+    </factor>
+    <factor id="binaryFeature:prox_openedInEditor">
+      <dailyData date="16-04-2019">
+        <observation name="UNDEFINED" value="1.0" />
+        <observation name="false" value="1.0" />
+        <observation name="true" value="3.0" />
+      </dailyData>
+      <dailyData date="17-04-2019">
+        <observation name="UNDEFINED" value="15.0" />
+        <observation name="false" value="26.0" />
+        <observation name="true" value="59.0" />
+      </dailyData>
+      <dailyData date="18-04-2019">
+        <observation name="UNDEFINED" value="2.0" />
+        <observation name="false" value="5.0" />
+        <observation name="true" value="12.0" />
+      </dailyData>
+    </factor>
+    <factor id="binaryFeature:prox_sameDirectory">
+      <dailyData date="16-04-2019">
+        <observation name="UNDEFINED" value="1.0" />
+        <observation name="false" value="1.0" />
+        <observation name="true" value="3.0" />
+      </dailyData>
+      <dailyData date="17-04-2019">
+        <observation name="UNDEFINED" value="15.0" />
+        <observation name="false" value="35.0" />
+        <observation name="true" value="50.0" />
+      </dailyData>
+      <dailyData date="18-04-2019">
+        <observation name="UNDEFINED" value="2.0" />
+        <observation name="false" value="5.0" />
+        <observation name="true" value="12.0" />
+      </dailyData>
+    </factor>
+    <factor id="binaryFeature:prox_sameLogicalRoot">
+      <dailyData date="16-04-2019">
+        <observation name="UNDEFINED" value="1.0" />
+        <observation name="false" value="4.0" />
+      </dailyData>
+      <dailyData date="17-04-2019">
+        <observation name="UNDEFINED" value="15.0" />
+        <observation name="false" value="85.0" />
+      </dailyData>
+      <dailyData date="18-04-2019">
+        <observation name="UNDEFINED" value="2.0" />
+        <observation name="false" value="17.0" />
+      </dailyData>
+    </factor>
+    <factor id="binaryFeature:prox_sdkOrLibrary">
+      <dailyData date="16-04-2019">
+        <observation name="UNDEFINED" value="1.0" />
+        <observation name="false" value="3.0" />
+        <observation name="true" value="1.0" />
+      </dailyData>
+      <dailyData date="17-04-2019">
+        <observation name="UNDEFINED" value="15.0" />
+        <observation name="false" value="50.0" />
+        <observation name="true" value="35.0" />
+      </dailyData>
+      <dailyData date="18-04-2019">
+        <observation name="UNDEFINED" value="2.0" />
+        <observation name="false" value="12.0" />
+        <observation name="true" value="5.0" />
+      </dailyData>
+    </factor>
+    <factor id="binaryFeature:templates">
+      <dailyData date="16-04-2019">
+        <observation name="false" value="5.0" />
+      </dailyData>
+      <dailyData date="17-04-2019">
+        <observation name="false" value="100.0" />
+      </dailyData>
+      <dailyData date="18-04-2019">
+        <observation name="false" value="19.0" />
+      </dailyData>
+    </factor>
+    <factor id="categoricalFeature:accessible">
+      <dailyData date="16-04-2019">
+        <observation name="UNDEFINED" value="5.0" />
+      </dailyData>
+      <dailyData date="17-04-2019">
+        <observation name="UNDEFINED" value="100.0" />
+      </dailyData>
+      <dailyData date="18-04-2019">
+        <observation name="UNDEFINED" value="19.0" />
+      </dailyData>
+    </factor>
+    <factor id="categoricalFeature:expectedType">
+      <dailyData date="16-04-2019">
+        <observation name="UNDEFINED" value="5.0" />
+      </dailyData>
+      <dailyData date="17-04-2019">
+        <observation name="UNDEFINED" value="100.0" />
+      </dailyData>
+      <dailyData date="18-04-2019">
+        <observation name="UNDEFINED" value="19.0" />
+      </dailyData>
+    </factor>
+    <factor id="categoricalFeature:kind">
+      <dailyData date="16-04-2019">
+        <observation name="UNDEFINED" value="5.0" />
+      </dailyData>
+      <dailyData date="17-04-2019">
+        <observation name="UNDEFINED" value="100.0" />
+      </dailyData>
+      <dailyData date="18-04-2019">
+        <observation name="UNDEFINED" value="19.0" />
+      </dailyData>
+    </factor>
+    <factor id="categoricalFeature:prox_groovyReferenceListWeigher">
+      <dailyData date="16-04-2019">
+        <observation name="UNDEFINED" value="5.0" />
+      </dailyData>
+      <dailyData date="17-04-2019">
+        <observation name="UNDEFINED" value="100.0" />
+      </dailyData>
+      <dailyData date="18-04-2019">
+        <observation name="UNDEFINED" value="19.0" />
+      </dailyData>
+    </factor>
+    <factor id="categoricalFeature:prox_javaInheritance">
+      <dailyData date="16-04-2019">
+        <observation name="UNDEFINED" value="5.0" />
+      </dailyData>
+      <dailyData date="17-04-2019">
+        <observation name="UNDEFINED" value="100.0" />
+      </dailyData>
+      <dailyData date="18-04-2019">
+        <observation name="UNDEFINED" value="19.0" />
+      </dailyData>
+    </factor>
+    <factor id="categoricalFeature:prox_referenceList">
+      <dailyData date="16-04-2019">
+        <observation name="UNDEFINED" value="5.0" />
+      </dailyData>
+      <dailyData date="17-04-2019">
+        <observation name="UNDEFINED" value="100.0" />
+      </dailyData>
+      <dailyData date="18-04-2019">
+        <observation name="UNDEFINED" value="19.0" />
+      </dailyData>
+    </factor>
+    <factor id="categoricalFeature:recursion">
+      <dailyData date="16-04-2019">
+        <observation name="UNDEFINED" value="5.0" />
+      </dailyData>
+      <dailyData date="17-04-2019">
+        <observation name="UNDEFINED" value="100.0" />
+      </dailyData>
+      <dailyData date="18-04-2019">
+        <observation name="UNDEFINED" value="19.0" />
+      </dailyData>
+    </factor>
+    <factor id="completionFinishedType">
+      <dailyData date="16-04-2019">
+        <observation name="cancelled" value="3.0" />
+        <observation name="explicitSelect" value="4.0" />
+        <observation name="typedSelect" value="1.0" />
+      </dailyData>
+      <dailyData date="17-04-2019">
+        <observation name="cancelled" value="269.0" />
+        <observation name="explicitSelect" value="59.0" />
+        <observation name="typedSelect" value="41.0" />
+      </dailyData>
+      <dailyData date="18-04-2019">
+        <observation name="cancelled" value="53.0" />
+        <observation name="explicitSelect" value="18.0" />
+        <observation name="typedSelect" value="1.0" />
+      </dailyData>
+    </factor>
+    <factor id="completionType">
+      <dailyData date="16-04-2019">
+        <observation name="BASIC" value="8.0" />
+      </dailyData>
+      <dailyData date="17-04-2019">
+        <observation name="BASIC" value="137.0" />
+      </dailyData>
+      <dailyData date="18-04-2019">
+        <observation name="BASIC" value="24.0" />
+      </dailyData>
+    </factor>
+    <factor id="completionUsage">
+      <dailyData date="16-04-2019">
+        <observation name="count" value="8.0" />
+      </dailyData>
+      <dailyData date="17-04-2019">
+        <observation name="count" value="369.0" />
+      </dailyData>
+      <dailyData date="18-04-2019">
+        <observation name="count" value="72.0" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:explicitProximity">
+      <dailyData date="16-04-2019">
+        <observation name="average" value="0.0" />
+        <observation name="count" value="9.0" />
+        <observation name="max" value="0.0" />
+        <observation name="min" value="0.0" />
+        <observation name="variance" value="0.0" />
+      </dailyData>
+      <dailyData date="17-04-2019">
+        <observation name="average" value="0.0" />
+        <observation name="count" value="199.0" />
+        <observation name="max" value="0.0" />
+        <observation name="min" value="0.0" />
+        <observation name="variance" value="0.0" />
+      </dailyData>
+      <dailyData date="18-04-2019">
+        <observation name="average" value="0.0" />
+        <observation name="count" value="37.0" />
+        <observation name="max" value="0.0" />
+        <observation name="min" value="0.0" />
+        <observation name="variance" value="0.0" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:grouping">
+      <dailyData date="16-04-2019">
+        <observation name="average" value="0.111111" />
+        <observation name="count" value="9.0" />
+        <observation name="max" value="1.0" />
+        <observation name="min" value="0.0" />
+        <observation name="variance" value="0.046048" />
+      </dailyData>
+      <dailyData date="17-04-2019">
+        <observation name="average" value="0.0" />
+        <observation name="count" value="199.0" />
+        <observation name="max" value="0.0" />
+        <observation name="min" value="0.0" />
+        <observation name="variance" value="0.0" />
+      </dailyData>
+      <dailyData date="18-04-2019">
+        <observation name="average" value="0.0" />
+        <observation name="count" value="37.0" />
+        <observation name="max" value="0.0" />
+        <observation name="min" value="0.0" />
+        <observation name="variance" value="0.0" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:mostUsed">
+      <dailyData date="16-04-2019">
+        <observation name="UNDEFINED" value="5.0" />
+      </dailyData>
+      <dailyData date="17-04-2019">
+        <observation name="UNDEFINED" value="100.0" />
+      </dailyData>
+      <dailyData date="18-04-2019">
+        <observation name="UNDEFINED" value="19.0" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:nameEnd">
+      <dailyData date="16-04-2019">
+        <observation name="UNDEFINED" value="5.0" />
+      </dailyData>
+      <dailyData date="17-04-2019">
+        <observation name="UNDEFINED" value="100.0" />
+      </dailyData>
+      <dailyData date="18-04-2019">
+        <observation name="UNDEFINED" value="19.0" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:position">
+      <dailyData date="16-04-2019">
+        <observation name="average" value="0.0" />
+        <observation name="count" value="9.0" />
+        <observation name="max" value="0.0" />
+        <observation name="min" value="0.0" />
+        <observation name="variance" value="0.0" />
+      </dailyData>
+      <dailyData date="17-04-2019">
+        <observation name="average" value="0.281407" />
+        <observation name="count" value="199.0" />
+        <observation name="max" value="6.0" />
+        <observation name="min" value="0.0" />
+        <observation name="variance" value="0.982347" />
+      </dailyData>
+      <dailyData date="18-04-2019">
+        <observation name="average" value="0.864865" />
+        <observation name="count" value="37.0" />
+        <observation name="max" value="10.0" />
+        <observation name="min" value="0.0" />
+        <observation name="variance" value="3.35042" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:prefix">
+      <dailyData date="16-04-2019">
+        <observation name="average" value="-1152.444444" />
+        <observation name="count" value="9.0" />
+        <observation name="max" value="-1152.0" />
+        <observation name="min" value="-1153.0" />
+        <observation name="variance" value="0.114166" />
+      </dailyData>
+      <dailyData date="17-04-2019">
+        <observation name="average" value="-1115.231156" />
+        <observation name="count" value="199.0" />
+        <observation name="max" value="0.0" />
+        <observation name="min" value="-1155.0" />
+        <observation name="variance" value="19463.899944" />
+      </dailyData>
+      <dailyData date="18-04-2019">
+        <observation name="average" value="-1152.189189" />
+        <observation name="count" value="37.0" />
+        <observation name="max" value="-1152.0" />
+        <observation name="min" value="-1153.0" />
+        <observation name="variance" value="0.122048" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:priority">
+      <dailyData date="16-04-2019">
+        <observation name="average" value="0.0" />
+        <observation name="count" value="9.0" />
+        <observation name="max" value="0.0" />
+        <observation name="min" value="0.0" />
+        <observation name="variance" value="0.0" />
+      </dailyData>
+      <dailyData date="17-04-2019">
+        <observation name="average" value="0.0" />
+        <observation name="count" value="199.0" />
+        <observation name="max" value="0.0" />
+        <observation name="min" value="0.0" />
+        <observation name="variance" value="0.0" />
+      </dailyData>
+      <dailyData date="18-04-2019">
+        <observation name="average" value="0.0" />
+        <observation name="count" value="37.0" />
+        <observation name="max" value="0.0" />
+        <observation name="min" value="0.0" />
+        <observation name="variance" value="0.0" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:prox_explicitlyImported">
+      <dailyData date="16-04-2019">
+        <observation name="UNDEFINED" value="5.0" />
+      </dailyData>
+      <dailyData date="17-04-2019">
+        <observation name="UNDEFINED" value="100.0" />
+      </dailyData>
+      <dailyData date="18-04-2019">
+        <observation name="UNDEFINED" value="19.0" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:prox_knownElement">
+      <dailyData date="16-04-2019">
+        <observation name="UNDEFINED" value="5.0" />
+      </dailyData>
+      <dailyData date="17-04-2019">
+        <observation name="UNDEFINED" value="100.0" />
+      </dailyData>
+      <dailyData date="18-04-2019">
+        <observation name="UNDEFINED" value="19.0" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:prox_sameModule">
+      <dailyData date="16-04-2019">
+        <observation name="UNDEFINED" value="1.0" />
+        <observation name="average" value="1.428571" />
+        <observation name="count" value="7.0" />
+        <observation name="max" value="2.0" />
+        <observation name="min" value="0.0" />
+        <observation name="variance" value="0.362993" />
+      </dailyData>
+      <dailyData date="17-04-2019">
+        <observation name="UNDEFINED" value="15.0" />
+        <observation name="average" value="1.431952" />
+        <observation name="count" value="169.0" />
+        <observation name="max" value="2.0" />
+        <observation name="min" value="0.0" />
+        <observation name="variance" value="0.684679" />
+      </dailyData>
+      <dailyData date="18-04-2019">
+        <observation name="UNDEFINED" value="2.0" />
+        <observation name="average" value="1.393939" />
+        <observation name="count" value="33.0" />
+        <observation name="max" value="2.0" />
+        <observation name="min" value="0.0" />
+        <observation name="variance" value="0.565994" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:prox_samePsiMember">
+      <dailyData date="16-04-2019">
+        <observation name="UNDEFINED" value="5.0" />
+      </dailyData>
+      <dailyData date="17-04-2019">
+        <observation name="UNDEFINED" value="100.0" />
+      </dailyData>
+      <dailyData date="18-04-2019">
+        <observation name="UNDEFINED" value="19.0" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:query_length">
+      <dailyData date="16-04-2019">
+        <observation name="average" value="0.0" />
+        <observation name="count" value="9.0" />
+        <observation name="max" value="0.0" />
+        <observation name="min" value="0.0" />
+        <observation name="variance" value="0.0" />
+      </dailyData>
+      <dailyData date="17-04-2019">
+        <observation name="average" value="0.0" />
+        <observation name="count" value="199.0" />
+        <observation name="max" value="0.0" />
+        <observation name="min" value="0.0" />
+        <observation name="variance" value="0.0" />
+      </dailyData>
+      <dailyData date="18-04-2019">
+        <observation name="average" value="0.0" />
+        <observation name="count" value="37.0" />
+        <observation name="max" value="0.0" />
+        <observation name="min" value="0.0" />
+        <observation name="variance" value="0.0" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:result_length">
+      <dailyData date="16-04-2019">
+        <observation name="average" value="6.222222" />
+        <observation name="count" value="9.0" />
+        <observation name="max" value="11.0" />
+        <observation name="min" value="4.0" />
+        <observation name="variance" value="3.871948" />
+      </dailyData>
+      <dailyData date="17-04-2019">
+        <observation name="average" value="5.286432" />
+        <observation name="count" value="199.0" />
+        <observation name="max" value="28.0" />
+        <observation name="min" value="1.0" />
+        <observation name="variance" value="24.124468" />
+      </dailyData>
+      <dailyData date="18-04-2019">
+        <observation name="average" value="9.162162" />
+        <observation name="count" value="37.0" />
+        <observation name="max" value="22.0" />
+        <observation name="min" value="2.0" />
+        <observation name="variance" value="18.008519" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:sameWords">
+      <dailyData date="16-04-2019">
+        <observation name="UNDEFINED" value="5.0" />
+      </dailyData>
+      <dailyData date="17-04-2019">
+        <observation name="UNDEFINED" value="100.0" />
+      </dailyData>
+      <dailyData date="18-04-2019">
+        <observation name="UNDEFINED" value="19.0" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:shorter">
+      <dailyData date="16-04-2019">
+        <observation name="UNDEFINED" value="5.0" />
+      </dailyData>
+      <dailyData date="17-04-2019">
+        <observation name="UNDEFINED" value="100.0" />
+      </dailyData>
+      <dailyData date="18-04-2019">
+        <observation name="UNDEFINED" value="19.0" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:simple">
+      <dailyData date="16-04-2019">
+        <observation name="UNDEFINED" value="5.0" />
+      </dailyData>
+      <dailyData date="17-04-2019">
+        <observation name="UNDEFINED" value="100.0" />
+      </dailyData>
+      <dailyData date="18-04-2019">
+        <observation name="UNDEFINED" value="19.0" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:sorter">
+      <dailyData date="16-04-2019">
+        <observation name="average" value="1.0" />
+        <observation name="count" value="9.0" />
+        <observation name="max" value="1.0" />
+        <observation name="min" value="1.0" />
+        <observation name="variance" value="0.0" />
+      </dailyData>
+      <dailyData date="17-04-2019">
+        <observation name="average" value="1.0" />
+        <observation name="count" value="199.0" />
+        <observation name="max" value="1.0" />
+        <observation name="min" value="1.0" />
+        <observation name="variance" value="0.0" />
+      </dailyData>
+      <dailyData date="18-04-2019">
+        <observation name="average" value="1.0" />
+        <observation name="count" value="37.0" />
+        <observation name="max" value="1.0" />
+        <observation name="min" value="1.0" />
+        <observation name="variance" value="0.0" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:statics">
+      <dailyData date="16-04-2019">
+        <observation name="UNDEFINED" value="5.0" />
+      </dailyData>
+      <dailyData date="17-04-2019">
+        <observation name="UNDEFINED" value="100.0" />
+      </dailyData>
+      <dailyData date="18-04-2019">
+        <observation name="UNDEFINED" value="19.0" />
+      </dailyData>
+    </factor>
+    <factor id="doubleFeature:stats">
+      <dailyData date="16-04-2019">
+        <observation name="average" value="4401.333333" />
+        <observation name="count" value="9.0" />
+        <observation name="max" value="9991.0" />
+        <observation name="min" value="0.0" />
+        <observation name="variance" value="11399843.103553" />
+      </dailyData>
+      <dailyData date="17-04-2019">
+        <observation name="average" value="4165.170854" />
+        <observation name="count" value="199.0" />
+        <observation name="max" value="10000.0" />
+        <observation name="min" value="0.0" />
+        <observation name="variance" value="20095543.856977" />
+      </dailyData>
+      <dailyData date="18-04-2019">
+        <observation name="average" value="5130.054054" />
+        <observation name="count" value="37.0" />
+        <observation name="max" value="9999.0" />
+        <observation name="min" value="0.0" />
+        <observation name="variance" value="15902967.504256" />
+      </dailyData>
+    </factor>
+    <factor id="itemPosition">
+      <dailyData date="16-04-2019">
+        <observation name="0" value="4.0" />
+      </dailyData>
+      <dailyData date="17-04-2019">
+        <observation name="0" value="46.0" />
+        <observation name="1" value="5.0" />
+        <observation name="2" value="5.0" />
+        <observation name="3" value="1.0" />
+        <observation name="4" value="1.0" />
+        <observation name="6" value="1.0" />
+      </dailyData>
+      <dailyData date="18-04-2019">
+        <observation name="0" value="12.0" />
+        <observation name="1" value="4.0" />
+        <observation name="10" value="1.0" />
+        <observation name="2" value="1.0" />
+      </dailyData>
+    </factor>
+    <factor id="mnemonicsUsage">
+      <dailyData date="16-04-2019">
+        <observation name="total" value="3.0" />
+        <observation name="withMnemonics" value="0.0" />
+      </dailyData>
+      <dailyData date="17-04-2019">
+        <observation name="total" value="51.0" />
+        <observation name="withMnemonics" value="2.0" />
+      </dailyData>
+      <dailyData date="18-04-2019">
+        <observation name="total" value="12.0" />
+        <observation name="withMnemonics" value="0.0" />
+      </dailyData>
+    </factor>
+    <factor id="prefixLength">
+      <dailyData date="16-04-2019">
+        <observation name="1" value="1.0" />
+        <observation name="3" value="2.0" />
+        <observation name="5" value="1.0" />
+      </dailyData>
+      <dailyData date="17-04-2019">
+        <observation name="0" value="1.0" />
+        <observation name="1" value="7.0" />
+        <observation name="2" value="19.0" />
+        <observation name="3" value="22.0" />
+        <observation name="4" value="2.0" />
+        <observation name="5" value="2.0" />
+        <observation name="6" value="4.0" />
+        <observation name="7" value="1.0" />
+        <observation name="9" value="1.0" />
+      </dailyData>
+      <dailyData date="18-04-2019">
+        <observation name="1" value="6.0" />
+        <observation name="2" value="5.0" />
+        <observation name="3" value="6.0" />
+        <observation name="4" value="1.0" />
+      </dailyData>
+    </factor>
+    <factor id="timeBetweenTyping">
+      <dailyData date="16-04-2019">
+        <observation name="average" value="417.875" />
+        <observation name="count" value="8.0" />
+      </dailyData>
+      <dailyData date="17-04-2019">
+        <observation name="average" value="363.369231" />
+        <observation name="count" value="130.0" />
+      </dailyData>
+      <dailyData date="18-04-2019">
+        <observation name="average" value="428.575758" />
+        <observation name="count" value="33.0" />
+      </dailyData>
+    </factor>
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -129,6 +858,17 @@
               <item name="Crawler" type="462c0819:PsiDirectoryNode" />
               <item name="car168" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Crawler" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Crawler" type="462c0819:PsiDirectoryNode" />
+              <item name="car168" type="462c0819:PsiDirectoryNode" />
+              <item name="spiders" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Crawler" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Crawler" type="462c0819:PsiDirectoryNode" />
+              <item name="webdriver" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -138,8 +878,9 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/car168" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -171,7 +912,30 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/car168/crawl.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="input_text" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Crawler" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/car168" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/car168/input_text.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -192,6 +956,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/car168/main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -208,11 +973,12 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="$USER_HOME$/anaconda/bin/python" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/car168" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/car168/selenium168.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -222,7 +988,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="selenium168" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="selenium_baidu" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Crawler" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -234,7 +1000,8 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="C:\Users\YiFanShen\Documents\GitHub\Crawler\car168\selenium168.py" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/car168/selenium_baidu.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -243,34 +1010,20 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="seleniumDemo" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Crawler" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/car168" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="C:\Users\YiFanShen\Documents\GitHub\Crawler\car168\seleniumDemo.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+    <list>
+      <item itemvalue="Python.crawl" />
+      <item itemvalue="Python.main" />
+      <item itemvalue="Python.selenium168 (1)" />
+      <item itemvalue="Python.input_text" />
+      <item itemvalue="Python.selenium_baidu" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.selenium168 (1)" />
-        <item itemvalue="Python.main" />
-        <item itemvalue="Python.selenium168" />
-        <item itemvalue="Python.seleniumDemo" />
+        <item itemvalue="Python.selenium_baidu" />
+        <item itemvalue="Python.input_text" />
         <item itemvalue="Python.crawl" />
+        <item itemvalue="Python.main" />
       </list>
     </recent_temporary>
   </component>
@@ -284,19 +1037,27 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1555225795287</updated>
+      <workItem from="1555506424139" duration="4045000" />
     </task>
     <servers />
   </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="8428000" />
+  </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="0" y="23" width="1280" height="741" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.165786" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17609046" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Reviews" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="TeamCity" />
+      <window_info anchor="bottom" id="Database Changes" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49947312" visible="true" weight="0.27298445" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49947312" visible="true" weight="0.15254237" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -305,22 +1066,68 @@
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50052685" side_tool="true" weight="0.30985916" />
       <window_info anchor="bottom" id="Python Console" order="10" />
+      <window_info anchor="right" id="News Feed" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="SciView" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
   </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/car168/selenium168_new.py</url>
+          <line>52</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/selenium/webdriver/common/action_chains.py" />
+    <entry file="file://$PROJECT_DIR$/car168/spiders/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/scrapy/spiders/__init__.py" />
+    <entry file="file://$USER_HOME$/anaconda/lib/python3.6/site-packages/scrapy/spiders/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="71" column="8" selection-start-line="71" selection-start-column="8" selection-end-line="71" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/car168/crawl.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="8" column="40" lean-forward="true" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/car168/spiders/car168_crawl.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="28" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
+        <state relative-caret-position="250">
+          <caret line="95" column="29" lean-forward="true" selection-start-line="95" selection-start-column="29" selection-end-line="95" selection-end-column="29" />
+          <folding>
+            <element signature="e#127#140#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/car168/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/car168/seleniumDemo.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
+        <state relative-caret-position="165">
           <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
           <folding>
             <element signature="e#0#30#0" expanded="true" />
@@ -328,9 +1135,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/car168/input_text.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" selection-start-line="12" selection-end-line="33" selection-end-column="14" />
+          <folding>
+            <element signature="e#123#143#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda/lib/python3.6/tkinter/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="39825">
+          <caret line="2658" column="8" selection-start-line="2658" selection-start-column="8" selection-end-line="2658" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/car168/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1921">
+        <state relative-caret-position="1740">
           <caret line="116" selection-start-line="116" selection-end-line="116" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
@@ -338,29 +1162,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/selenium/webdriver/common/action_chains.py">
+    <entry file="file://$PROJECT_DIR$/car168/selenium_baidu.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1802">
-          <caret line="111" column="22" selection-start-line="111" selection-start-column="8" selection-end-line="111" selection-end-column="22" />
+        <state relative-caret-position="-333">
+          <caret line="35" column="8" lean-forward="true" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="8" />
+          <folding>
+            <element signature="e#141#171#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/car168/spiders/__init__.py">
+    <entry file="file://$PROJECT_DIR$/selenium168_new.py">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/scrapy/spiders/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1003">
-          <caret line="68" column="8" selection-start-line="68" selection-start-column="8" selection-end-line="68" selection-end-column="8" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/car168/selenium168.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="109" lean-forward="true" selection-start-line="109" selection-end-line="109" />
+        <state relative-caret-position="418">
+          <caret line="135" column="26" lean-forward="true" selection-start-line="135" selection-start-column="26" selection-end-line="135" selection-end-column="26" />
           <folding>
             <element signature="e#1#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/car168/selenium168_new.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="86" column="17" lean-forward="true" selection-start-line="86" selection-start-column="17" selection-end-line="86" selection-end-column="17" />
+          <folding>
+            <element signature="e#129#159#0" expanded="true" />
           </folding>
         </state>
       </provider>

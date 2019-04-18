@@ -32,9 +32,13 @@ class Car168Spider(Spider):
         "Connection": "keep-alive",
         "Content-Type":" application/x-www-form-urlencoded; charset=UTF-8",
         "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36",
-        "Origin": "http: // www.chehang168.com",
-        "Referer": "http: // www.chehang168.com / index.php?c = login & m = index"
+        "Origin": "http: // www.chehang168.com"
     }
+
+    cookie = {"DEVICE_ID":"f9b307d758e5d15bdea9c839d04610a6",
+              "_uab_collina":"155504794422439505407174",
+              "soucheAnalytics_usertag":"uZgr5ZgkcV",
+              "U":"1285841_8a088c5347ff612291c465aa42378894"}
 
     name = 'car168_spider'
 
@@ -45,7 +49,7 @@ class Car168Spider(Spider):
     }
 
     start_urls = [
-        'http://www.chehang168.com/index.php?c=login&m=index',
+        'http://www.chehang168.com/index.php?c=index&m=allBrands',
     ]
 
     start_urls2 = [
@@ -53,34 +57,32 @@ class Car168Spider(Spider):
     ]
 
     def start_requests(self):
-        return [Request("http://www.chehang168.com/index.php?c=login&m=GetLoginBySms",
-                        meta={'cookiejar': 1},
-                        callback=self.post_login)]  # 重写了爬虫类的方法, 实现了自定义请求, 运行成功后会调用callback回调函数
+        yield scrapy.Request(url=self.start_urls[0], headers=self.headers, cookies=self.cookie)  # 重写了爬虫类的方法, 实现了自定义请求, 运行成功后会调用callback回调函数
 
     # FormRequeset
-    def post_login(self, response):
-        print
-        'Preparing login'
-        # 下面这句话用于抓取请求网页后返回网页中的_xsrf字段的文字, 用于成功提交表单
-        # xsrf = Selector(response).xpath('//input[@name="_xsrf"]/@value').extract()[0]
-        # print
-        # xsrf
-        # FormRequeset.from_response是Scrapy提供的一个函数, 用于post表单
-        # 登陆成功后, 会调用after_login回调函数
-        return [FormRequest.from_response(response,
-                                          meta={'cookiejar': response.meta['cookiejar']},
-                                          # headers=self.headers,
-                                          formdata={
-                                              'name': '17816861605',
-                                              'verify': '2286'  # 手机收到的验证码
-                                          },
-                                          callback=self.after_login,
-                                          dont_filter=True
-                                          )]
+    # def post_login(self, response):
+    #     print
+    #     'Preparing login'
+    #     # 下面这句话用于抓取请求网页后返回网页中的_xsrf字段的文字, 用于成功提交表单
+    #     # xsrf = Selector(response).xpath('//input[@name="_xsrf"]/@value').extract()[0]
+    #     # print
+    #     # xsrf
+    #     # FormRequeset.from_response是Scrapy提供的一个函数, 用于post表单
+    #     # 登陆成功后, 会调用after_login回调函数
+    #     return [FormRequest.from_response(response,
+    #                                       meta={'cookiejar': response.meta['cookiejar']},
+    #                                       # headers=self.headers,
+    #                                       formdata={
+    #                                           'name': '17816861605',
+    #                                           'verify': '2286'  # 手机收到的验证码
+    #                                       },
+    #                                       callback=self.after_login,
+    #                                       dont_filter=True
+    #                                       )]
 
-    def after_login(self, response):
-        for url in self.start_urls2:
-            yield self.make_requests_from_url(url)
+    # def after_login(self, response):
+    #     for url in self.start_urls2:
+    #         yield self.make_requests_from_url(url)
 
     def parse(self, response):
         self.logger.info('Start Crawling Car 168...')
@@ -88,6 +90,7 @@ class Car168Spider(Spider):
         urls = response.xpath("/html/body/div[4]/div/ul/li[*]/a[*]/@href").extract()
         names_and_urls = zip(names, urls)
         for name, url in names_and_urls:
+            print(name)
             item = CarBrandItem
             item['name'] = name
             item['url'] = url

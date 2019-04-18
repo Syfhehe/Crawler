@@ -2,6 +2,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.action_chains import ActionChains
 import time
+import tkinter as tk
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
@@ -19,7 +20,7 @@ def get_trace(distance):
     # 设置加速的距离
     faster_distance = distance * (4 / 5)
     # 设置初始位置、初始速度、时间间隔
-    start, v0, t = 0, 0, 0.1
+    start, v0, t = 0, 0, 0.05
     # 当尚未移动到终点时
     while start < distance:
         # 如果处于加速阶段
@@ -29,7 +30,7 @@ def get_trace(distance):
         # 如果处于减速阶段
         else:
             # 设置加速度为-3
-            a = -10.0
+            a = -1.0
         # 移动的距离公式
         move = v0 * t + 1 / 2 * a * t * t
         # 此刻速度
@@ -60,53 +61,91 @@ def get_trace(distance):
 
 driver = webdriver.Firefox()
 driver.get("http://www.chehang168.com/")
-time.sleep(2)
+time.sleep(0.1)
 name = driver.find_element_by_name("uname")
 
-#name.send_keys("17816861605")
-name.send_keys("13732202517")
+name.send_keys("17816861605")
+# name.send_keys("13732202517")
 script = "Object.defineProperties(navigator,{webdriver:{get:() => false}});"
 driver.execute_script(script)
 driver.execute_script("window.navigator.webdriver")
-try:
-    #定位滑块元素
-    source=driver.find_element_by_xpath("//*[@id='nc_1_n1z']")
-    # 得到滑块标签
-    trace = get_trace(230)
-    # slider = WebDriverWait.until(EC.presence_of_element_located((By.CLASS_NAME, 'gt_slider_knob')))
-    # 使用click_and_hold()方法悬停在滑块上，perform()方法用于执行
-    ActionChains(driver).click_and_hold(source).perform()
+
+# 定位滑块元素
+source = driver.find_element_by_xpath("//*[@id='nc_1_n1z']")
+# 得到滑块标签
+# trace = get_trace(230)
+# slider = WebDriverWait.until(EC.presence_of_element_located((By.CLASS_NAME, 'gt_slider_knob')))
+# 使用click_and_hold()方法悬停在滑块上，perform()方法用于执行
+ActionChains(driver).click_and_hold(source).perform()
+time.sleep(0.5)
+ActionChains(driver).move_by_offset(xoffset=250, yoffset=0).perform()
+# for x in trace:
+#     # 使用move_by_offset()方法拖动滑块，perform()方法用于执行
+#     ActionChains(driver).move_by_offset(xoffset=x, yoffset=0).perform()
+# 模拟人类对准时间
+time.sleep(0.5)
+# 释放滑块
+ActionChains(driver).release().perform()
+while driver.current_url != "http://www.chehang168.com/index.php?c=index&m=index":
     time.sleep(0.5)
-    for x in trace:
-        # 使用move_by_offset()方法拖动滑块，perform()方法用于执行
-        ActionChains(driver).move_by_offset(xoffset=x, yoffset=0).perform()
-    # 模拟人类对准时间
-    time.sleep(0.5)
-    # 释放滑块
-    ActionChains(driver).release().perform()
-    while driver.current_url != "http://www.chehang168.com/index.php?c=index&m=index":
-        time.sleep(0.5)
-        print(driver.current_url)
     print(driver.current_url)
-    time.sleep(0.5)
-    driver.find_element_by_xpath(
-        u"(.//*[normalize-space(text()) and normalize-space(.)='更多'])[3]/following::img[1]").click()
-    driver.find_element_by_link_text(u"车商首页").click()
-    time.sleep(0.5)
-    driver.find_element_by_id("get_tels").click()
-    time.sleep(0.5)
-    html = driver.page_source
-    time.sleep(0.5)
-    print(html)
-except Exception as e:
-    print(e)
-    #这里定位失败后的刷新按钮，重新加载滑块模块
-    # driver.find_element_by_xpath("//div[@id='havana_nco']/div/span/a").click()
-    # print(e)
+print(driver.current_url)
+time.sleep(0.5)
 
-#退出浏览器，如果浏览器打开多个窗口，可以使用driver.close()关闭当前窗口而不是关闭浏览器
-driver.quit()
+top = tk.Tk()
+
+L1 = tk.Label(top, text="输入url", width=20, height=5, padx=10, pady=10)
+L1.pack(side=tk.LEFT)
+E1 = tk.Entry(top, bd=5)
+E1.pack(side=tk.RIGHT)
+
+L2 = tk.Label(top, text="输入正则表达式", width=20, height=5, padx=10, pady=10)
+L2.pack(side=tk.LEFT)
+E2 = tk.Entry(top, bd=5)
+E2.pack(side=tk.RIGHT)
 
 
+def access_url():
+    try:
+        # title = driver.find_elements_by_xpath("/html/body/div[2]/div/ul/li[2]/a/")
+        # cookie_list = driver.get_cookies()
+        # print(cookie_list)
+        # for cookie in cookie_list:
+        #     driver.add_cookie(cookie)
+
+        print("now visit url is %s" % E1.get())
+        driver.get(E1.get())
+
+        print("now xpath is %s" % E2.get())
+
+        # u"/html/body/div[4]/div/ul/li[*]/a[*]"
+        brands = driver.find_elements_by_xpath(E2.get())
+        # driver.find_element_by_css_selector()
+
+        # driver.find_element_by_xpath(
+        #     u"(.//*[normalize-space(text()) and normalize-space(.)='更多'])[3]/following::img[1]").click()
+        # driver.find_element_by_link_text(u"车商首页").click()
+        # time.sleep(0.5)
+        # driver.find_element_by_id("get_tels").click()
+        # time.sleep(0.5)
+        # html = driver.page_source
+        # time.sleep(0.5)
+        for url in brands:
+            print(url.get_attribute("href"))
+
+    except Exception as e:
+        print(e)
+        #这里定位失败后的刷新按钮，重新加载滑块模块
+        # driver.find_element_by_xpath("//div[@id='havana_nco']/div/span/a").click()
+        # print(e)
+
+    #退出浏览器，如果浏览器打开多个窗口，可以使用driver.close()关闭当前窗口而不是关闭浏览器
+    # driver.quit()
+
+
+button = tk.Button(top, text="按钮", command=access_url, width=20, height=5, padx=20, pady=20)
+button.pack()
+
+top.mainloop()
 
 
