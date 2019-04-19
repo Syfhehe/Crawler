@@ -8,10 +8,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.action_chains import ActionChains
 import time
-import tkinter as tk
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
+import re
 
 driver = webdriver.Firefox()
 driver.get("http://www.chehang168.com/")
@@ -45,57 +42,92 @@ print(driver.current_url)
 time.sleep(0.5)
 
 # 品牌爬取
-driver.get("http://www.chehang168.com/index.php?c=index&m=allBrands")
-brand_urls = []
-for i in range(25):
-    # u"/html/body/div[4]/div/ul/li[*]/a[*]"
-    brand_xpath = "/html/body/div[4]/div/ul/li[*]/a[%d]"%i
-    brands = driver.find_elements_by_xpath(brand_xpath)
-    for url in brands:
-        brand_urls.append(url.get_attribute("href"))
-# TODO, 品牌名称爬取
-# TODO, 品牌链接与品牌名称 保存
-#
+# driver.get("http://www.chehang168.com/index.php?c=index&m=allBrands")
+# brand_urls = []
+# for i in range(25):
+#     # u"/html/body/div[4]/div/ul/li[*]/a[*]"
+#     brand_xpath = "/html/body/div[4]/div/ul/li[*]/a[%d]"%i
+#     brands = driver.find_elements_by_xpath(brand_xpath)
+#     for url in brands:
+#         brand_urls.append((url.text, url.get_attribute("href")))
+#     brand_file_path = "/Users/yu.jin/Downloads/chehang168_brand_0418.txt"
+#     with open(brand_file_path, "w") as f:  # 设置文件对象
+#         brands_name_url = ["%s,%s" % (line[0], line[1]) + "\n" for line in brand_urls]
+#         f.writelines(brands_name_url)
+
+# TODO, 品牌链接与品牌名称 数据库保存
+
 
 # 系列爬取
-series_urls = []
-for brand_url in brand_urls:
-    driver.get(brand_url)
-    series_xpath = "/html/body/div[4]/div[1]/div[1]/div/div[2]/div/div[*]/ul/li[*]/a"
-    series = driver.find_elements_by_xpath(series_xpath)
-    for url in series:
-        series_urls.append(url.get_attribute("href") + "&type=1")  # type=1 代表选中公司
-# TODO, 系列名称爬取
-# TODO, 系列链接与系列名称 保存
+# series_urls = []
+# for brand_url in brand_urls:
+#     driver.get(brand_url[1])
+#     series_xpath = "/html/body/div[4]/div[1]/div[1]/div/div[2]/div/div[*]/ul/li[*]/a"
+#     series = driver.find_elements_by_xpath(series_xpath)
+#     for url in series:
+#         series_urls.append((url.text, url.get_attribute("href") + "&type=1"))  # type=1 代表选中公司
+#
+#     series_file_path = "/Users/yu.jin/Downloads/chehang168_series_0418.txt"
+#     with open(series_file_path, "w") as f:  # 设置文件对象
+#         series_name_url = ["%s,%s" % (line[0], line[1]) + "\n" for line in series_urls]
+#         f.writelines(series_name_url)
+
+# TODO, 系列链接与系列名称 数据库保存
 #
 
-# 厂商链接爬取
+# http://www.chehang168.com/index.php?c=index&m=series&psid=6aaIm&type=1&pricetype=0&page=2
+
+series_file_path = "/Users/yu.jin/Downloads/chehang168_series_0418.txt"
+#
+series_urls = []
+with open(series_file_path, "r") as f:    #设置文件对象
+    urls = f.readlines()
+    for url in urls:
+        series_urls.append(url[:-1].split(",")[1])
+# 经销商链接爬取
 company_urls = set()
 for series_url in series_urls:
-    driver.get(series_url)
-    company_xpath = "/html/body/div[4]/div[1]/div[2]/ul[2]/li[*]/p[2]/a"
-    company = driver.find_elements_by_xpath(company_xpath)
-    for url in company:
-        company_urls.add(url.get_attribute("href"))
+    # TODO, 页码爬取
+    driver.get(series_url + '&pricetype=0&page=1')
+    last_page_number = 1
+    try:
+        link = driver.find_element_by_link_text(">>").get_attribute("href")
+        last_page_number = int(link[link.find("page=")+5:])
+    except Exception as e:
+        print(e)
+    for i in range(last_page_number):
+        driver.get(series_url + '&pricetype=0&page=' + "%s" % str(i+1))  # 链接加上页码
+        company_xpath = "/html/body/div[4]/div[1]/div[2]/ul[2]/li[*]/p[2]/a"
+        company = driver.find_elements_by_xpath(company_xpath)
+        for url in company:
+            print(url.text + "," + url.get_attribute("href"))
+            company_urls.add((url.text, url.get_attribute("href")))
+    time.sleep(0.5)
 
-# TODO, 经销商名称爬取
-# TODO, 经销商链接与厂商名称 保存
-
-# TODO, 经销商信息爬取
-address = []
-people_name = []
-phone_number = []
-for company_url in company_urls:
-    driver.get(company_url)
-    # TODO, 查看联系人 按钮点击
-    driver.find_element_by_name("").click()
-    # TODO, 经销商信息爬取
-    address_xpath = ""
-    address.append(driver.find_element_by_xpath(address_xpath))
-    people_name_xpath = ""
-    people_name.append(driver.find_element_by_xpath(people_name_xpath))
-    phone_number_xpath = ""
-    phone_number.append(driver.find_element_by_xpath(phone_number_xpath))
+company_file_path = "/Users/yu.jin/Downloads/chehang168_company_0418.csv"
+with open(company_file_path, "w") as f:  # 设置文件对象
+    company_name_url = ["%s,%s" % (line[0], line[1]) + "\n" for line in company_urls]
+    f.writelines(company_name_url)
+#
+# # TODO, 经销商名称爬取
+# # TODO, 经销商链接与厂商名称 保存
+#
+# # TODO, 经销商信息爬取
+# address = []
+# people_name = []
+# phone_number = []
+# for company_url in company_urls:
+#     driver.get(company_url)
+#     # 查看联系人 按钮点击
+#     driver.find_element_by_id("get_tels").click()
+#     # TODO, 经销商信息爬取
+#     address_xpath = ""
+#     address.append(driver.find_element_by_xpath("/html/body/div[4]/ul/li[4]").text)
+#     # TODO, 联系人拆分，姓名电话在一个元素里，可能有多个姓名电话
+#     people_name_xpath = ""
+#     people_name.append(driver.find_elements_by_xpath("/html/body/div[4]/ul/li[5]/div/p[*]"))
+#     phone_number_xpath = ""
+#     phone_number.append(driver.find_element_by_xpath(phone_number_xpath))
 
 
 
