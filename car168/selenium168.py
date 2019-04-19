@@ -107,40 +107,33 @@ E2.pack(side=tk.RIGHT)
 
 def access_url():
     try:
-        # title = driver.find_elements_by_xpath("/html/body/div[2]/div/ul/li[2]/a/")
-        # cookie_list = driver.get_cookies()
-        # print(cookie_list)
-        # for cookie in cookie_list:
-        #     driver.add_cookie(cookie)
+        # print("now visit url is %s" % E1.get())
+        # driver.get(E1.get())
+        # print("now xpath is %s" % E2.get())
+        # brands = driver.find_elements_by_xpath(E2.get())
+        # for url in brands:
+        #     print(url.get_attribute("href"))
 
-        print("now visit url is %s" % E1.get())
-        driver.get(E1.get())
+        brand_url_path = "/Users/yu.jin/Downloads/chehang168_brands"
 
-        print("now xpath is %s" % E2.get())
+        series_urls = []
+        with open(brand_url_path, "r") as f:  # 设置文件对象
+            urls = f.readlines()
+            for url in urls:
+                print(url[:-1])
+                driver.get(url[:-1])
+                series_xpath = "/html/body/div[4]/div[1]/div[1]/div/div[2]/div/div[*]/ul/li[*]/a"
+                series = driver.find_elements_by_xpath(series_xpath)
+                for series_url in series:
+                    print(series_url.get_attribute("href") + "&type=1")
+                    series_urls.append(series_url.get_attribute("href") + "&type=1")  # type=1 代表选中公司
 
-        # u"/html/body/div[4]/div/ul/li[*]/a[*]"
-        brands = driver.find_elements_by_xpath(E2.get())
-        # driver.find_element_by_css_selector()
-
-        # driver.find_element_by_xpath(
-        #     u"(.//*[normalize-space(text()) and normalize-space(.)='更多'])[3]/following::img[1]").click()
-        # driver.find_element_by_link_text(u"车商首页").click()
-        # time.sleep(0.5)
-        # driver.find_element_by_id("get_tels").click()
-        # time.sleep(0.5)
-        # html = driver.page_source
-        # time.sleep(0.5)
-        for url in brands:
-            print(url.get_attribute("href"))
+        series_url_path = "/Users/yu.jin/Downloads/chehang168_series"
+        with open(series_url_path, "w") as f:  # 设置文件对象
+            f.write('\n'.join(series_urls))
 
     except Exception as e:
         print(e)
-        #这里定位失败后的刷新按钮，重新加载滑块模块
-        # driver.find_element_by_xpath("//div[@id='havana_nco']/div/span/a").click()
-        # print(e)
-
-    #退出浏览器，如果浏览器打开多个窗口，可以使用driver.close()关闭当前窗口而不是关闭浏览器
-    # driver.quit()
 
 
 button = tk.Button(top, text="按钮", command=access_url, width=20, height=5, padx=20, pady=20)

@@ -46,18 +46,9 @@ def access_url():
         print("now xpath is %s" % E2.get())
         # u"/html/body/div[4]/div/ul/li[1]/a[1]"
         brands = driver.find_elements_by_xpath(E2.get())
-        # driver.find_element_by_css_selector()
-
-        # driver.find_element_by_xpath(
-        #     u"(.//*[normalize-space(text()) and normalize-space(.)='更多'])[3]/following::img[1]").click()
-        # driver.find_element_by_link_text(u"车商首页").click()
-        # time.sleep(0.5)
-        # driver.find_element_by_id("get_tels").click()
-        # time.sleep(0.5)
-        # html = driver.page_source
-        # time.sleep(0.5)
         for url in brands:
             print(url.get_attribute("href"))
+
 
     except Exception as e:
         print(e)
