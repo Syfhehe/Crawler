@@ -77,6 +77,8 @@ time.sleep(0.5)
 
 # http://www.chehang168.com/index.php?c=index&m=series&psid=6aaIm&type=1&pricetype=0&page=2
 
+import numpy as np
+
 series_file_path = "/Users/yu.jin/Downloads/chehang168_series_0418.txt"
 #
 series_urls = []
@@ -102,7 +104,10 @@ for series_url in series_urls:
         for url in company:
             print(url.text + "," + url.get_attribute("href"))
             company_urls.add((url.text, url.get_attribute("href")))
-    time.sleep(0.5)
+        rand = np.random.random(1)
+        rand1 = rand[0] * 10 + 20
+        print(rand1)
+        time.sleep(rand1)
 
 company_file_path = "/Users/yu.jin/Downloads/chehang168_company_0418.csv"
 with open(company_file_path, "w") as f:  # 设置文件对象

@@ -5,12 +5,19 @@
 # @Date  : 2019-04-18
 # @Desc  :
 #
-file_path = "/Users/yu.jin/Downloads/chehang168_series_0418.txt"
-#
-with open(file_path, "r") as f:    #设置文件对象
-    urls = f.readlines()
-    for url in urls:
-        print(url[:-1].split(",")[1])
+
+import numpy as np
+
+a = np.random.random(1)
+
+print(a[0]+1)
+
+# file_path = "/Users/yu.jin/Downloads/chehang168_series_0418.txt"
+# #
+# with open(file_path, "r") as f:    #设置文件对象
+#     urls = f.readlines()
+#     for url in urls:
+#         print(url[:-1].split(",")[1])
 
 # lists = [('a', 'a'), ('b', 'b'), ('jy', 'jy'), ('syf', 'syf'), ('a', 'a')]
 # sets = set()
