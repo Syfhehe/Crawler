@@ -12,9 +12,9 @@ def connect_wxremit_db():
 
 
 # 查询
-def query_url_by_status(cc2):
+def query_series_url_by_status(cc2):
     sql_str = ("SELECT url"
-                + " FROM brand"
+                + " FROM series"
                 + " WHERE status='%s'" % (cc2))
     con = connect_wxremit_db()
     cur = con.cursor()
@@ -23,11 +23,13 @@ def query_url_by_status(cc2):
     cur.close()
     con.close()
 
-    assert len(rows) != 0, 'Fatal error: country_code does not exists!'
-    return rows[0][0]
+    assert len(rows) != 0, 'Fatal error: series url does not exists!'
+    return rows
+
+
 
 #插入多条数据
-def insert_data(aa):
+def insert_data_brand(aa):
     con = connect_wxremit_db()
     cur = con.cursor()
     try:
@@ -41,25 +43,50 @@ def insert_data(aa):
         con.close()
 
 
-#更新状态
-def update_status_by_url(url, status):
+#插入多条数据
+def insert_data_series(aa):
     con = connect_wxremit_db()
     cur = con.cursor()
     try:
-        sql_str = ("SELECT status"
-                   + " FROM brand"
-                   + " WHERE url='%s'" % url
-                   + " FOR UPDATE")
+        cur.executemany("INSERT INTO series (name, url, status)" + " VALUES (%s, %s, %s)", aa)
+        assert cur.rowcount == len(aa), 'my error message'
+        con.commit()
+    except Exception as e:
+        con.rollback()
+    finally:
+        cur.close()
+        con.close()
 
-        cur.execute(sql_str)
-        assert cur.rowcount == 1, 'Fatal error: The wx-refund record be deleted!'
 
-        sql_str_update = ("UPDATE brand"
+#插入多条数据
+def insert_data_seller(aa):
+    con = connect_wxremit_db()
+    cur = con.cursor()
+    try:
+        cur.executemany("INSERT INTO seller (name, url, status)" + " VALUES (%s, %s, %s)", aa)
+        assert cur.rowcount == len(aa), 'my error message'
+        con.commit()
+    except Exception as e:
+        con.rollback()
+    finally:
+        cur.close()
+        con.close()
+
+
+
+
+#更新状态
+def update_series_status_by_url(url, status):
+    con = connect_wxremit_db()
+    cur = con.cursor()
+    try:
+
+        sql_str_update = ("UPDATE series"
                     + " SET status='%s'" % status
                     + " WHERE url='%s'" % url)
         cur.execute(sql_str_update)
         print(sql_str_update)
-        assert cur.rowcount == 1, 'The number of affected rows not equal to 1'
+        # assert cur.rowcount == 1, 'The number of affected rows not equal to 1'
         con.commit()
     except Exception as e:
         con.rollback()
@@ -77,4 +104,7 @@ def update_status_by_url(url, status):
 # brands = [('benz', 'http://www.chehang168.com/index.php?c=index&m=brand&pbid=bd4Tl', 'not start'), ('audi', 'http://www.chehang168.com/index.php?c=index&m=brand&pbid=65eWU','not start')]
 # insert_data(brands)
 
-update_status_by_url('http://www.chehang168.com/index.php?c=index&m=brand&pbid=bd4Tl', 'finished');
+# update_status_by_url('http://www.chehang168.com/index.php?c=index&m=brand&pbid=bd4Tl', 'finished')
+
+if __name__ == '__main__':
+    update_series_status_by_url("http://www.chehang168.com/index.php?c=index&m=series&psid=14081ZU&type=1", "DONE")
