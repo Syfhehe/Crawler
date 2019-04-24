@@ -17,11 +17,23 @@ driver.get("http://www.chehang168.com/")
 time.sleep(0.1)
 name = driver.find_element_by_name("uname")
 
+# 金宇
 # name.send_keys("17816861605")
+# 金宇
 # name.send_keys("13989470972")
+# 李益均
 # name.send_keys("15301718215")
+# 沈一凡
 # name.send_keys("13732202517")
-name.send_keys("15702154165")
+# 李益均
+# name.send_keys("15702154165")
+# 桂佳佳
+# name.send_keys("15618691822")
+# 刘树
+# name.send_keys("17721338625")
+# 唐师兄
+name.send_keys("15618932927")
+
 script = "Object.defineProperties(navigator,{webdriver:{get:() => false}});"
 driver.execute_script(script)
 driver.execute_script("window.navigator.webdriver")
