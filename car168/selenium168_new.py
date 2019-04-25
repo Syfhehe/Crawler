@@ -19,13 +19,13 @@ name = driver.find_element_by_name("uname")
 
 # 金宇
 # name.send_keys("17816861605")
-# 金宇
+# 李益均
 # name.send_keys("13989470972")
 # 李益均
 # name.send_keys("15301718215")
 # 沈一凡
 # name.send_keys("13732202517")
-# 李益均
+# 金宇
 # name.send_keys("15702154165")
 # 桂佳佳
 # name.send_keys("15618691822")
@@ -53,10 +53,10 @@ ActionChains(driver).release().perform()
 # TODO, 登录按钮点击
 # 确定登录成功
 while driver.current_url != "http://www.chehang168.com/index.php?c=index&m=index":
-    time.sleep(0.5)
+    time.sleep(1)
     print(driver.current_url)
 print(driver.current_url)
-time.sleep(0.5)
+time.sleep(1)
 
 # 品牌爬取
 # driver.get("http://www.chehang168.com/index.php?c=index&m=allBrands")
@@ -124,9 +124,6 @@ for series_url in series_urls_not_crawl:
     try:
         link = driver.find_element_by_link_text(">>")
 
-        # 展厅ICON
-        # icon = driver.find_element_by_class_name("ic zt")
-
         if link:
             link = link.get_attribute("href")
             last_page_number = int(link[link.find("page=")+5:])
@@ -168,6 +165,7 @@ for series_url in series_urls_not_crawl:
             company_urls.add((url.text, url.get_attribute("href"), "TODO"))
 
     if flag:
+        series_urls_crawl.add(series_url)
         break
     else:
         series_urls_crawl.add(series_url)
