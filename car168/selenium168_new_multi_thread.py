@@ -16,6 +16,8 @@ import time
 import re
 from car168.multi_thread_util import div_list
 import threading
+# from multiprocessing import Queue
+import queue
 
 
 def main():
@@ -25,7 +27,7 @@ def main():
     name = driver.find_element_by_name("uname")
 
     # 金宇
-    name.send_keys("17816861605")
+    # name.send_keys("17816861605")
     # 李益均
     # name.send_keys("13989470972")
     # 李益均
@@ -70,21 +72,53 @@ def main():
 
     series_urls_not_crawl_4 = div_list(series_urls_not_crawl, 4)
 
-    t1 = [threading.Thread(target=crawler, args=(driver, urls)) for urls in series_urls_not_crawl_4]
+    cookie = driver.get_cookies()
+    print(cookie)
+    print(type(cookie))
+    company_queue = queue.Queue()
+    finished_queue = queue.Queue()
+
+    t1 = [threading.Thread(target=crawler, args=(cookie, urls, company_queue, finished_queue)) for urls in series_urls_not_crawl_4]
     for t in t1:
         t.start()
 
     for t in t1:
         t.join()
+
+    company_urls = set()
+    series_urls_crawl = set()
+
+    while not company_queue.empty():
+        company_urls.add(company_queue.get())
+
+    while not finished_queue.empty():
+        series_urls_crawl.add(finished_queue.get())
+
+    for company in company_urls:
+        print("%s, %s, %s" % (company[0], company[1], company[2]))
+
+    insert_data_seller(company_urls)
+
+    for url_crawl in series_urls_crawl:
+        print("finished url is " + url_crawl)
+        update_series_status_by_url(url_crawl, "DONE")
+
     print("Exiting Main Thread")
 
 
-def crawler(driver, series_urls_not_crawl):
-    series_urls_crawl = set()
+def crawler(cookies, series_urls_not_crawl, company_queue, finished_queue):
+    driver = webdriver.Firefox()
+    driver.get("http://www.chehang168.com/")
+    time.sleep(2)
+    for cookie in cookies:
+        driver.add_cookie(cookie)
+    time.sleep(8)
+
+    # series_urls_crawl = set()
 
     # 经销商链接爬取
     flag = 0
-    company_urls = set()
+    # company_urls = set()
     for series_url in series_urls_not_crawl:
         # TODO, 页码爬取
         driver.get(series_url + '&pricetype=0&page=1')
@@ -108,14 +142,14 @@ def crawler(driver, series_urls_not_crawl):
             company = driver.find_elements_by_xpath(company_xpath)
             for url in company:
                 # print("%s, %s" % (url.text, url.get_attribute("href")))
-                company_urls.add((url.text, url.get_attribute("href"), "TODO"))
+                company_queue.put((url.text, url.get_attribute("href"), "TODO"))
 
             company2 = driver.find_elements_by_xpath(company_xpath2)
             for url in company2:
                 # print("%s, %s" % (url.text, url.get_attribute("href")))
-                company_urls.add((url.text, url.get_attribute("href"), "TODO"))
+                company_queue.put((url.text, url.get_attribute("href"), "TODO"))
 
-            series_urls_crawl.add(series_url)
+            finished_queue.put(series_url)
 
         for page in range(last_page_number):
             driver.get(series_url + '&pricetype=0&page=' + "%s" % str(page + 1))  # 链接加上页码
@@ -128,27 +162,28 @@ def crawler(driver, series_urls_not_crawl):
             company = driver.find_elements_by_xpath(company_xpath)
             for url in company:
                 # print("%s, %s" % (url.text, url.get_attribute("href")))
-                company_urls.add((url.text, url.get_attribute("href"), "TODO"))
+                company_queue.put((url.text, url.get_attribute("href"), "TODO"))
 
             company2 = driver.find_elements_by_xpath(company_xpath2)
             for url in company2:
                 # print("%s, %s" % (url.text, url.get_attribute("href")))
-                company_urls.add((url.text, url.get_attribute("href"), "TODO"))
+                # company_urls.add((url.text, url.get_attribute("href"), "TODO"))
+                company_queue.put((url.text, url.get_attribute("href"), "TODO"))
 
         if flag:
-            series_urls_crawl.add(series_url)
+            finished_queue.put(series_url)
             break
         else:
-            series_urls_crawl.add(series_url)
+            finished_queue.put(series_url)
 
-    for company in company_urls:
-        print("%s, %s, %s" % (company[0], company[1], company[2]))
+    # for company in company_urls:
+    #     print("%s, %s, %s" % (company[0], company[1], company[2]))
 
     # insert_data_seller(company_urls)
 
-    for url_crawl in series_urls_crawl:
-        print("finished url is " + url_crawl)
-        # update_series_status_by_url(url_crawl, "DONE")
+    # for url_crawl in series_urls_crawl:
+    #     print("finished url is " + url_crawl)
+    #     update_series_status_by_url(url_crawl, "DONE")
 
 
 if __name__ == '__main__':
