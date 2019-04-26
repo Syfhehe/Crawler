@@ -1,3 +1,11 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# @File  : selenium168_new_multi_thread.py
+# @Author: yu.jin
+# @Date  : 2019-04-26
+# @Desc  :
+
+
 from multiprocessing import Pool
 import os, time, random
 from selenium import webdriver
@@ -6,6 +14,9 @@ from car168.databaseDemo import insert_data_brand, insert_data_series, query_ser
     update_series_status_by_url, insert_data_seller
 import time
 import re
+from car168.multi_thread_util import div_list
+import threading
+
 
 def main():
     driver = webdriver.Firefox()
@@ -14,7 +25,7 @@ def main():
     name = driver.find_element_by_name("uname")
 
     # 金宇
-    # name.send_keys("17816861605")
+    name.send_keys("17816861605")
     # 李益均
     # name.send_keys("13989470972")
     # 李益均
@@ -54,21 +65,24 @@ def main():
     print(driver.current_url)
     time.sleep(1)
 
-
     series_urls_not_crawl = query_series_url_by_status("TODO")
     series_urls_not_crawl = [url[0] for url in series_urls_not_crawl]
-    # TODO, 切分
-    p = Pool()
-    for i in range(4):
-        # 每一份
-        p.apply_async(getUrls, args=(series_urls_not_crawl,))
-    print('Waiting for all subprocesses done...')
-    p.close()
-    p.join()
-    print('All subprocesses done.')
 
-def getUrls(series_urls_not_crawl)：
+    series_urls_not_crawl_4 = div_list(series_urls_not_crawl, 4)
+
+    t1 = [threading.Thread(target=crawler, args=(driver, urls)) for urls in series_urls_not_crawl_4]
+    for t in t1:
+        t.start()
+
+    for t in t1:
+        t.join()
+    print("Exiting Main Thread")
+
+
+def crawler(driver, series_urls_not_crawl):
     series_urls_crawl = set()
+
+    # 经销商链接爬取
     flag = 0
     company_urls = set()
     for series_url in series_urls_not_crawl:
@@ -83,7 +97,7 @@ def getUrls(series_urls_not_crawl)：
 
             if link:
                 link = link.get_attribute("href")
-                last_page_number = int(link[link.find("page=")+5:])
+                last_page_number = int(link[link.find("page=") + 5:])
         except Exception as e:
             driver.get(series_url + '&pricetype=0&page=1')  # 链接加上页码
             if driver.current_url == 'http://www.chehang168.com/index.php?c=com&m=limitPage':
@@ -104,11 +118,11 @@ def getUrls(series_urls_not_crawl)：
             series_urls_crawl.add(series_url)
 
         for page in range(last_page_number):
-            driver.get(series_url + '&pricetype=0&page=' + "%s" % str(page+1))  # 链接加上页码
+            driver.get(series_url + '&pricetype=0&page=' + "%s" % str(page + 1))  # 链接加上页码
             if driver.current_url == 'http://www.chehang168.com/index.php?c=com&m=limitPage':
                 flag = 1
                 break
-    #
+            #
             company_xpath = "/html/body/div[4]/div[1]/div[2]/ul[2]/li[*]/p[3]/a"
             company_xpath2 = "/html/body/div[4]/div[1]/div[2]/ul[2]/li[*]/p[2]/a"
             company = driver.find_elements_by_xpath(company_xpath)
@@ -130,11 +144,12 @@ def getUrls(series_urls_not_crawl)：
     for company in company_urls:
         print("%s, %s, %s" % (company[0], company[1], company[2]))
 
-    insert_data_seller(company_urls)
-
+    # insert_data_seller(company_urls)
 
     for url_crawl in series_urls_crawl:
-        update_series_status_by_url(url_crawl, "DONE")
+        print("finished url is " + url_crawl)
+        # update_series_status_by_url(url_crawl, "DONE")
 
 
-
+if __name__ == '__main__':
+    main()
