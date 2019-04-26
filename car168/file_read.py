@@ -7,10 +7,27 @@
 #
 
 import numpy as np
+import queue
 
-a = np.random.random(1)
+company_urls = set()
+series_urls_crawl = set()
+company_queue = queue.Queue()
+company_queue.put(("A", "B", "C"))
+company_queue.put(("A", "B", "C"))
+company_queue.put(("A", "B", "D"))
 
-print(a[0]+1)
+while not company_queue.empty():
+    a = company_queue.get()
+    print(a)
+    company_urls.add(a)
+
+
+for company in company_urls:
+    print("%s, %s, %s" % (company[0], company[1], company[2]))
+
+# a = np.random.random(1)
+#
+# print(a[0]+1)
 
 # file_path = "/Users/yu.jin/Downloads/chehang168_series_0418.txt"
 # #
