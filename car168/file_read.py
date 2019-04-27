@@ -8,22 +8,47 @@
 
 import numpy as np
 import queue
+from multiprocessing import Pool
+from selenium import webdriver
 
-company_urls = set()
-series_urls_crawl = set()
-company_queue = queue.Queue()
-company_queue.put(("A", "B", "C"))
-company_queue.put(("A", "B", "C"))
-company_queue.put(("A", "B", "D"))
-
-while not company_queue.empty():
-    a = company_queue.get()
-    print(a)
-    company_urls.add(a)
+# TODO, 切分
 
 
-for company in company_urls:
-    print("%s, %s, %s" % (company[0], company[1], company[2]))
+def main():
+    p = Pool()
+    x = 1
+    for urls in range(2):
+        # 每一份
+        p.apply_async(printi, args=(x, urls))
+    print('Waiting for all subprocesses done...')
+    p.close()
+    p.join()
+
+
+def printi(i, x):
+    print(i)
+    driver = webdriver.Firefox()
+    driver.get("http://www.baidu.com/")
+
+
+if __name__ == "__main__":
+    main()
+
+# company_urls = set()
+# series_urls_crawl = set()
+# company_queue = queue.Queue()
+# company_queue.put(("A", "B", "C"))
+# company_queue.put(("A", "B", "C"))
+# company_queue.put(("A", "B", "D"))
+#
+# while not company_queue.empty():
+#     a = company_queue.get()
+#     print(a)
+#     company_urls.add(a)
+#
+#
+# for company in company_urls:
+#     print("%s, %s, %s" % (company[0], company[1], company[2]))
 
 # a = np.random.random(1)
 #
