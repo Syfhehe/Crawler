@@ -107,7 +107,9 @@ def main():
 
 
 def crawler(cookies, series_urls_not_crawl, company_queue, finished_queue):
-    driver = webdriver.Firefox()
+    options = webdriver.FirefoxProfile()
+    options.set_preference('permissions.default.image', 2)
+    driver = webdriver.Firefox(options)
     driver.get("http://www.chehang168.com/")
     time.sleep(2)
     for cookie in cookies:
