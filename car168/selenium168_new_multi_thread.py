@@ -21,7 +21,9 @@ import queue
 
 
 def main():
-    driver = webdriver.Firefox()
+    options = webdriver.FirefoxProfile()
+    options.set_preference('permissions.default.image', 2)
+    driver = webdriver.Firefox(options)
     driver.get("http://www.chehang168.com/")
     time.sleep(0.1)
     name = driver.find_element_by_name("uname")
@@ -37,7 +39,7 @@ def main():
     # 金宇
     # name.send_keys("15702154165")
     # 桂佳佳
-    # name.send_keys("15618691822")
+    name.send_keys("15618691822")
     # 刘树
     # name.send_keys("17721338625")
     # 唐师兄
@@ -70,7 +72,7 @@ def main():
     series_urls_not_crawl = query_series_url_by_status("TODO")
     series_urls_not_crawl = [url[0] for url in series_urls_not_crawl]
 
-    series_urls_not_crawl_4 = div_list(series_urls_not_crawl, 4)
+    series_urls_not_crawl_4 = div_list(series_urls_not_crawl, 10)
 
     cookie = driver.get_cookies()
     print(cookie)
@@ -114,7 +116,7 @@ def crawler(cookies, series_urls_not_crawl, company_queue, finished_queue):
     time.sleep(2)
     for cookie in cookies:
         driver.add_cookie(cookie)
-    time.sleep(8)
+    time.sleep(10)
 
     # series_urls_crawl = set()
 
