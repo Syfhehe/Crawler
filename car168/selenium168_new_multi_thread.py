@@ -39,11 +39,15 @@ def main():
     # 金宇
     # name.send_keys("15702154165")
     # 桂佳佳
-    name.send_keys("15618691822")
+    # name.send_keys("15618691822")
     # 刘树
     # name.send_keys("17721338625")
     # 唐师兄
     # name.send_keys("15618932927")
+    # echo
+    # name.send_keys("13262738792")
+    # 易码1
+    name.send_keys("15844632374")
 
     script = "Object.defineProperties(navigator,{webdriver:{get:() => false}});"
     driver.execute_script(script)
@@ -72,7 +76,7 @@ def main():
     series_urls_not_crawl = query_series_url_by_status("TODO")
     series_urls_not_crawl = [url[0] for url in series_urls_not_crawl]
 
-    series_urls_not_crawl_4 = div_list(series_urls_not_crawl, 10)
+    series_urls_not_crawl_4 = div_list(series_urls_not_crawl, 4)
 
     cookie = driver.get_cookies()
     print(cookie)
