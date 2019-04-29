@@ -27,6 +27,21 @@ def query_series_url_by_status(cc2):
     return rows
 
 
+# 查询
+def query_company_url_by_status(cc2):
+    sql_str = ("SELECT distinct url"
+                + " FROM seller"
+                + " WHERE status='%s'" % (cc2))
+    con = connect_wxremit_db()
+    cur = con.cursor()
+    cur.execute(sql_str)
+    rows = cur.fetchall()
+    cur.close()
+    con.close()
+
+    assert len(rows) != 0, 'Fatal error: series url does not exists!'
+    return rows
+
 
 #插入多条数据
 def insert_data_brand(aa):
@@ -73,6 +88,27 @@ def insert_data_seller(aa):
         con.close()
 
 
+#更新状态
+def update_company_status_by_url(address, contact, url, status):
+    con = connect_wxremit_db()
+    cur = con.cursor()
+    try:
+
+        sql_str_update = ("UPDATE seller_backup"
+                    + " SET status='%s', " % status
+                    + " contact='%s', " % contact
+                    + " address='%s' " % address
+                    + " WHERE url='%s'" % url)
+        print(sql_str_update)
+        cur.execute(sql_str_update)
+        # assert cur.rowcount == 1, 'The number of affected rows not equal to 1'
+        con.commit()
+    except Exception as e:
+        con.rollback()
+        raise
+    finally:
+        cur.close()
+        con.close()
 
 
 #更新状态
@@ -107,4 +143,5 @@ def update_series_status_by_url(url, status):
 # update_status_by_url('http://www.chehang168.com/index.php?c=index&m=brand&pbid=bd4Tl', 'finished')
 
 if __name__ == '__main__':
-    update_series_status_by_url("http://www.chehang168.com/index.php?c=index&m=series&psid=14081ZU&type=1", "DONE")
+    # update_series_status_by_url("http://www.chehang168.com/index.php?c=index&m=series&psid=14081ZU&type=1", "DONE")
+    update_company_status_by_url("0", "0", "http://www.chehang168.com/u/ewxpt_027ppBdpZ", "DONE")
