@@ -21,7 +21,9 @@ import queue
 
 
 def main():
-    driver = webdriver.Firefox()
+    options = webdriver.FirefoxProfile()
+    options.set_preference('permissions.default.image', 2)
+    driver = webdriver.Firefox(options)
     driver.get("http://www.chehang168.com/")
     time.sleep(0.1)
     name = driver.find_element_by_name("uname")
@@ -42,29 +44,8 @@ def main():
     # name.send_keys("17721338625")
     # 唐师兄
     # name.send_keys("15618932927")
-
-    # name.send_keys("13784227191")
-
-    # name.send_keys("18354352491")
-
-    # name.send_keys("18354354025")
-
-    # name.send_keys("15289122014")
-
-    # name.send_keys("17155910903")
-
-    # name.send_keys("15634210541")
-
-    # name.send_keys("15886122848")
-
-    # name.send_keys("13845898954")
-
-    name.send_keys("13846614783")
-
-
-
-
-
+    # echo
+    # name.send_keys("13262738792")
 
 
     script = "Object.defineProperties(navigator,{webdriver:{get:() => false}});"
