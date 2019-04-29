@@ -43,6 +43,30 @@ def main():
     # 唐师兄
     # name.send_keys("15618932927")
 
+    # name.send_keys("13784227191")
+
+    # name.send_keys("18354352491")
+
+    # name.send_keys("18354354025")
+
+    # name.send_keys("15289122014")
+
+    # name.send_keys("17155910903")
+
+    # name.send_keys("15634210541")
+
+    # name.send_keys("15886122848")
+
+    # name.send_keys("13845898954")
+
+    name.send_keys("13846614783")
+
+
+
+
+
+
+
     script = "Object.defineProperties(navigator,{webdriver:{get:() => false}});"
     driver.execute_script(script)
     driver.execute_script("window.navigator.webdriver")
@@ -70,7 +94,7 @@ def main():
     series_urls_not_crawl = query_series_url_by_status("TODO")
     series_urls_not_crawl = [url[0] for url in series_urls_not_crawl]
 
-    series_urls_not_crawl_4 = div_list(series_urls_not_crawl, 4)
+    series_urls_not_crawl_4 = div_list(series_urls_not_crawl, 3)
 
     cookie = driver.get_cookies()
     print(cookie)
@@ -111,10 +135,10 @@ def crawler(cookies, series_urls_not_crawl, company_queue, finished_queue):
     options.set_preference('permissions.default.image', 2)
     driver = webdriver.Firefox(options)
     driver.get("http://www.chehang168.com/")
-    time.sleep(2)
+    time.sleep(1)
     for cookie in cookies:
         driver.add_cookie(cookie)
-    time.sleep(8)
+    time.sleep(5)
 
     # series_urls_crawl = set()
 
