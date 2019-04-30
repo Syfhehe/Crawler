@@ -35,7 +35,7 @@ name = driver.find_element_by_name("uname")
 # 刘树
 # name.send_keys("17721338625")
 # 唐师兄
-name.send_keys("13261821034")
+name.send_keys("18731097547")
 
 
 script = "Object.defineProperties(navigator,{webdriver:{get:() => false}});"
@@ -52,6 +52,10 @@ ActionChains(driver).move_by_offset(xoffset=250, yoffset=0).perform()
 time.sleep(0.5)
 # 释放滑块
 ActionChains(driver).release().perform()
+time.sleep(2)
+driver.find_element_by_id("sendCode").click()
+
+
 # TODO, 发送短信按钮点击
 # TODO, 验证码填写框
 # TODO, 登录按钮点击
