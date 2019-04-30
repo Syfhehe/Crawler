@@ -29,13 +29,13 @@ name = driver.find_element_by_name("uname")
 # 沈一凡
 # name.send_keys("13732202517")
 # 金宇
-name.send_keys("15702154165")
+# name.send_keys("15702154165")
 # 桂佳佳
 # name.send_keys("15618691822")
 # 刘树
 # name.send_keys("17721338625")
 # 唐师兄
-# name.send_keys("15618932927")
+name.send_keys("13261821034")
 
 
 script = "Object.defineProperties(navigator,{webdriver:{get:() => false}});"
@@ -205,9 +205,6 @@ datas = []
 try:
     for company_url in company_urls_not_crawl:
         driver.get(company_url)
-        if driver.current_url == 'http://www.chehang168.com/index.php?c=com&m=limitPage':
-            flag = 1
-            break
         # 查看联系人 按钮点击
         driver.find_element_by_id("get_tels").click()
         # TODO, 经销商信息爬取

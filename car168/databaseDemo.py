@@ -30,7 +30,7 @@ def query_series_url_by_status(cc2):
 # 查询
 def query_company_url_by_status(cc2):
     sql_str = ("SELECT distinct url"
-                + " FROM seller"
+                + " FROM seller_backup"
                 + " WHERE status='%s'" % (cc2))
     con = connect_wxremit_db()
     cur = con.cursor()
