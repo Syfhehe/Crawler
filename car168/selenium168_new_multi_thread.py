@@ -6,18 +6,17 @@
 # @Desc  :
 
 
-from multiprocessing import Pool
-import os, time, random
-from selenium import webdriver
-from selenium.webdriver.common.action_chains import ActionChains
-from car168.databaseDemo import insert_data_brand, insert_data_series, query_series_url_by_status, \
-    update_series_status_by_url, insert_data_seller
-import time
-import re
-from car168.multi_thread_util import div_list
-import threading
 # from multiprocessing import Queue
 import queue
+import threading
+import time
+
+from selenium import webdriver
+from selenium.webdriver.common.action_chains import ActionChains
+
+from car168.databaseDemo import query_series_url_by_status, \
+    update_series_status_by_url, insert_data_seller
+from car168.multi_thread_util import div_list
 
 
 def main():

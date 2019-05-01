@@ -35,7 +35,10 @@ name = driver.find_element_by_name("uname")
 # 刘树
 # name.send_keys("17721338625")
 # 唐师兄
-name.send_keys("15731044734")
+# name.send_keys("15731044734")
+
+name.send_keys("13596827359")
+
 
 
 script = "Object.defineProperties(navigator,{webdriver:{get:() => false}});"

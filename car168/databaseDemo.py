@@ -88,6 +88,22 @@ def insert_data_seller(aa):
         con.close()
 
 
+def delete_data_seller(url):
+    con = connect_wxremit_db()
+    cur = con.cursor()
+    try:
+        delete_sql = "delete from seller_backup where url = '%s'" % url
+        print(delete_sql)
+        cur.execute(delete_sql)
+        con.commit()
+    except Exception as e:
+        print(e)
+        con.rollback()
+    finally:
+        cur.close()
+        con.close()
+
+
 #更新状态
 def update_company_status_by_url(address, contact, url, status):
     con = connect_wxremit_db()
@@ -144,4 +160,15 @@ def update_series_status_by_url(url, status):
 
 if __name__ == '__main__':
     # update_series_status_by_url("http://www.chehang168.com/index.php?c=index&m=series&psid=14081ZU&type=1", "DONE")
-    update_company_status_by_url("0", "0", "http://www.chehang168.com/u/ewxpt_027ppBdpZ", "DONE")
+    # update_company_status_by_url("0", "0", "http://www.chehang168.com/u/ewxpt_027ppBdpZ", "DONE")
+
+    # a = query_company_url_by_status("TODO")
+    # for url in a:
+    #     print(url[0])
+
+    a = query_company_url_by_status("DONE")
+    print(len(a))
+
+
+
+    # delete_data_seller('http://www.chehang168.com/u/dtlij_9b0zWKO8y')
