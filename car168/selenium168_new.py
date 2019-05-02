@@ -37,9 +37,7 @@ name = driver.find_element_by_name("uname")
 # 唐师兄
 # name.send_keys("15731044734")
 
-name.send_keys("13596827359")
-
-
+name.send_keys("13766722942")
 
 script = "Object.defineProperties(navigator,{webdriver:{get:() => false}});"
 driver.execute_script(script)
@@ -55,7 +53,7 @@ ActionChains(driver).move_by_offset(xoffset=250, yoffset=0).perform()
 time.sleep(0.5)
 # 释放滑块
 ActionChains(driver).release().perform()
-time.sleep(3)
+time.sleep(2)
 driver.find_element_by_id("sendCode").click()
 
 
@@ -73,11 +71,12 @@ company_urls = query_company_url_by_status("TODO")
 company_urls_not_crawl = [url[0] for url in company_urls]
 datas = []
 try:
-    time.sleep(2)
+    time.sleep(1)
     for company_url in company_urls_not_crawl:
         driver.get(company_url)
         # 查看联系人 按钮点击
         driver.find_element_by_id("get_tels").click()
+        time.sleep(0.5)
         # TODO, 经销商信息爬取
         address_xpath = "/html/body/div[4]/ul/li[4]"
         # TODO, 联系人拆分，姓名电话在一个元素里，可能有多个姓名电话
@@ -85,7 +84,10 @@ try:
         datas.append((driver.find_element_by_xpath(address_xpath).text,
                      driver.find_element_by_xpath(contact_xpath).text,
                      company_url))
+        time.sleep(0.5)
+
 except Exception as e:
+    print(e)
     for data in datas:
         update_company_status_by_url(data[0], data[1], data[2], "DONE")
 
