@@ -1,14 +1,13 @@
-from multiprocessing import Pool
-import os, time, random
+import queue
+import threading
+import time
+
 from selenium import webdriver
 from selenium.webdriver.common.action_chains import ActionChains
-from car168.databaseDemo import insert_data_brand, insert_data_series, query_series_url_by_status, \
-    update_series_status_by_url, insert_data_seller
-from car168.multi_thread_util import div_list
-from multiprocessing import Queue
-import time
-import re
 
+from car168.databaseDemo import insert_data_brand, insert_data_series, query_series_person_url_by_status, \
+    update_series_person_status_by_url, insert_data_person
+from car168.multi_thread_util import div_list
 
 def main():
     driver = webdriver.Firefox()
@@ -17,7 +16,7 @@ def main():
     name = driver.find_element_by_name("uname")
 
     # 金宇
-    name.send_keys("17816861605")
+    name.send_keys("13766116462")
     # 李益均
     # name.send_keys("13989470972")
     # 李益均
@@ -62,22 +61,21 @@ def main():
     cookie = driver.get_cookies()
     print(cookie)
     print(type(cookie))
-    company_queue = Queue()
-    finished_queue = Queue()
+    company_queue = queue.Queue()
+    finished_queue = queue.Queue()
 
-    series_urls_not_crawl = query_series_url_by_status("TODO")
+    series_urls_not_crawl = query_series_person_url_by_status("TODO")
     series_urls_not_crawl = [url[0] for url in series_urls_not_crawl]
-    series_urls_not_crawl_4 = div_list(series_urls_not_crawl, 4)
+    series_urls_not_crawl_4 = div_list(series_urls_not_crawl, 3)
 
     # TODO, 切分
-    p = Pool()
-    for urls in series_urls_not_crawl_4:
-        # 每一份
-        print(len(urls))
-        p.apply_async(get_urls, args=(cookie, urls, company_queue, finished_queue))
-    print('Waiting for all subprocesses done...')
-    p.close()
-    p.join()
+    t1 = [threading.Thread(target=get_urls, args=(cookie, urls, company_queue, finished_queue)) for urls in
+          series_urls_not_crawl_4]
+    for t in t1:
+        t.start()
+
+    for t in t1:
+        t.join()
 
     company_urls = set()
     series_urls_crawl = set()
@@ -91,17 +89,18 @@ def main():
     for company in company_urls:
         print("%s, %s, %s" % (company[0], company[1], company[2]))
 
-    # insert_data_seller(company_urls)
+    insert_data_person(company_urls)
 
     for url_crawl in series_urls_crawl:
         print("finished url is " + url_crawl)
-        # update_series_status_by_url(url_crawl, "DONE")
+        update_series_person_status_by_url(url_crawl, "DONE")
     print('All subprocesses done.')
 
 
 def get_urls(cookies, series_urls_not_crawl, company_queue, finished_queue):
-    print("subprocss is ")
-    driver = webdriver.Firefox()
+    options = webdriver.FirefoxProfile()
+    options.set_preference('permissions.default.image', 2)
+    driver = webdriver.Firefox(options)
     driver.get("http://www.chehang168.com/")
     time.sleep(2)
     for cookie in cookies:

@@ -26,6 +26,20 @@ def query_series_url_by_status(cc2):
     assert len(rows) != 0, 'Fatal error: series url does not exists!'
     return rows
 
+# 查询
+def query_series_person_url_by_status(cc2):
+    sql_str = ("SELECT url"
+                + " FROM series_person"
+                + " WHERE status='%s'" % (cc2))
+    con = connect_wxremit_db()
+    cur = con.cursor()
+    cur.execute(sql_str)
+    rows = cur.fetchall()
+    cur.close()
+    con.close()
+
+    assert len(rows) != 0, 'Fatal error: series url does not exists!'
+    return rows
 
 # 查询
 def query_company_url_by_status(cc2):
@@ -87,6 +101,19 @@ def insert_data_seller(aa):
         cur.close()
         con.close()
 
+#插入多条数据
+def insert_data_person(aa):
+    con = connect_wxremit_db()
+    cur = con.cursor()
+    try:
+        cur.executemany("INSERT INTO person (name, url, status)" + " VALUES (%s, %s, %s)", aa)
+        assert cur.rowcount == len(aa), 'my error message'
+        con.commit()
+    except Exception as e:
+        con.rollback()
+    finally:
+        cur.close()
+        con.close()
 
 def delete_data_seller(url):
     con = connect_wxremit_db()
@@ -148,6 +175,26 @@ def update_series_status_by_url(url, status):
         con.close()
 
 
+#更新状态
+def update_series_person_status_by_url(url, status):
+    con = connect_wxremit_db()
+    cur = con.cursor()
+    try:
+
+        sql_str_update = ("UPDATE series_person"
+                    + " SET status='%s'" % status
+                    + " WHERE url='%s'" % url)
+        cur.execute(sql_str_update)
+        print(sql_str_update)
+        # assert cur.rowcount == 1, 'The number of affected rows not equal to 1'
+        con.commit()
+    except Exception as e:
+        con.rollback()
+        raise
+    finally:
+        cur.close()
+        con.close()
+
 # connection = connect_wxremit_db()
 #
 # result = query_url_by_status('not start')
@@ -166,7 +213,7 @@ if __name__ == '__main__':
     # for url in a:
     #     print(url[0])
 
-    a = query_company_url_by_status("DONE")
+    a = query_series_person_url_by_status("TODO")
     print(len(a))
 
 
