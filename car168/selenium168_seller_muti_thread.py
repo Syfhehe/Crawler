@@ -42,9 +42,7 @@ def main():
     # 唐师兄
     # name.send_keys("13843593401")
 
-
     name.send_keys("17685824346")
-
 
     script = "Object.defineProperties(navigator,{webdriver:{get:() => false}});"
     driver.execute_script(script)

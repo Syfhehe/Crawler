@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# @File  : selenium168_new.py
+# @File  : selenium168_seller.py
 # @Author: yu.jin
 # @Date  : 2019-04-17
 # @Desc  :
