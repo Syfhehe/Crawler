@@ -1,13 +1,12 @@
+import time
 from multiprocessing import Pool
-import os, time, random
+from multiprocessing import Queue
+
 from selenium import webdriver
 from selenium.webdriver.common.action_chains import ActionChains
-from car168.databaseDemo import insert_data_brand, insert_data_series, query_series_url_by_status, \
-    update_series_status_by_url, insert_data_seller
+
+from car168.databaseDemo import query_series_url_by_status
 from car168.multi_thread_util import div_list
-from multiprocessing import Queue
-import time
-import re
 
 
 def main():
