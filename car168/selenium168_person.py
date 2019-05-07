@@ -18,7 +18,7 @@ driver.get("http://www.chehang168.com/")
 time.sleep(0.1)
 name = driver.find_element_by_name("uname")
 
-name.send_keys("15860995194")
+name.send_keys("13766729547")
 
 script = "Object.defineProperties(navigator,{webdriver:{get:() => false}});"
 driver.execute_script(script)
@@ -51,25 +51,36 @@ time.sleep(1)
 company_urls = query_person_url_by_status("TODO")
 company_urls_not_crawl = [url[0] for url in company_urls]
 datas = []
+i = 0
 try:
     for company_url in company_urls_not_crawl:
+        if i >= 10:
+            break
         driver.get(company_url)
         # 查看联系人 按钮点击
         # TODO, 解决页面爬取不停止的bug
+        # driver.find_elements_by_xpath("/html/body/div[8]/div[2]/p")
+
         driver.find_element_by_id("get_tels").click()
         address_xpath = '//*[@id="fenxiang"]/ul/li[6]'
         contact_xpath = '//*[@id="li_tel"]'
         datas.append((driver.find_element_by_xpath(address_xpath).text,
-                     driver.find_element_by_xpath(contact_xpath).text,
-                     company_url))
+                      driver.find_element_by_xpath(contact_xpath).text,
+                      company_url))
+        i += 1
+
+    for data in datas:
+        print("%s, %s, %s" % (data[0], data[1], data[2]))
+        update_person_status_by_url(data[0], data[1], data[2], "DONE")
+
 except Exception as e:
     print(e)
     for data in datas:
         print("%s, %s, %s" % (data[0], data[1], data[2]))
-        # update_person_status_by_url(data[0], data[1], data[2], "DONE")
+        update_person_status_by_url(data[0], data[1], data[2], "DONE")
 
 
 
-
+# http://www.chehang168.com/index.php?c=com&m=limitPage
 
 

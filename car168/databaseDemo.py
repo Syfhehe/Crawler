@@ -254,11 +254,14 @@ if __name__ == '__main__':
     # update_company_status_by_url("0", "0", "http://www.chehang168.com/u/ewxpt_027ppBdpZ", "DONE")
 
     a = query_person_url_by_status("TODO")
+
     for url in a:
         print(url[0])
 
-    a = query_series_person_url_by_status("TODO")
     print(len(a))
+
+    # a = query_series_person_url_by_status("TODO")
+    # print(len(a))
 
     # a = query_person_url_by_status("TODO")
     # print(len(a))
