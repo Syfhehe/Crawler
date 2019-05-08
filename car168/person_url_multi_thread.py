@@ -156,7 +156,7 @@ def get_urls(cookies, series_urls_not_crawl, company_queue, finished_queue):
                 # print("%s, %s" % (url.text, url.get_attribute("href")))
                 company_queue.put((url.text, url.get_attribute("href"), "TODO"))
 
-       if flag:
+        if flag:
             finished_queue.put(series_url)
             break
         else:
